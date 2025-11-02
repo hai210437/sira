@@ -1,0 +1,15 @@
+.datenschutz-container {
+  padding: 3vh 3vw;
+  max-width: 50%;
+  color: var(--basic-blue);
+}
+.datenschutz-container h2{
+    font-size: clamp(20px, 1.2vw, 200px);
+    font-weight: bold;
+    margin-top: 3vh;
+}
+.datenschutz-container p{
+    font-size: clamp(12px, 1vw, 50px);
+    text-align: left;
+    line-height: 1.2;
+}

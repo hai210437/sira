@@ -1,0 +1,39 @@
+.kontakttext {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2vh 10vw;
+    gap: 5vw;
+    font-size:  clamp(12px, 1.5vw, 25px);
+    text-align: left;
+    color: var(--basic-blue);
+    margin-bottom: 5vh;
+}
+.kontaktform{
+    width:100%
+}
+.kontakt span{
+    width: 100%;
+
+}
+
+.mapmittext  {
+    margin-top: 3vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1vh 10vw;
+    gap: 5vw;
+    font-size: clamp(8px, 1.5vw, 25px);
+    text-align: left;
+    color: var(--basic-blue);
+    margin-bottom: 1vh;
+    height: auto
+}
+.mapmittext p{
+    margin-bottom: 2vh;
+    margin-top: 1vh;
+}

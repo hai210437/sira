@@ -1,0 +1,20 @@
+html,body{
+    overflow-x: hidden;
+    
+}
+*{
+     margin: 0;
+    padding: 0;
+    font-family: Amiko;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+:root{
+    --basic-blue: #000324;
+}
+*::before, *::after{
+    box-sizing: border-box;
+}
+
+
+

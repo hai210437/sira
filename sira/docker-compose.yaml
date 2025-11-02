@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  webapp:
+    image: dein-dockerhub-user/dein-image:latest  # Das Image, das du mit 'docker push' hochgeladen hast
+    ports:
+      - "8080:80"  # z. B. http://localhost:8080 erreichbar
+    environment:
+      - MAP_KEY=${MAP_KEY}  # Der Key wird beim Start aus deiner .env-Datei gezogen

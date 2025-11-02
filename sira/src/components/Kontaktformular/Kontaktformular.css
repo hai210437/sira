@@ -1,0 +1,100 @@
+.kontaktformular {
+    display: flex;
+    justify-content: flex-start ;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2vw;
+    margin: 5vh 10vw;
+    
+}
+
+.formular-links {
+    width: 57vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    flex: 1 1 40%;
+}
+
+.row {
+    display: flex;
+    justify-content:flex-start;
+    gap: 1vw;
+}
+
+.row input,
+.row textarea {
+    flex: 1;
+    flex-wrap: wrap;
+    background-color: #e6e6e6;
+    border: none;
+    color: var(--basic-blue);
+    opacity: 0.9;
+    font-size: clamp(10px, 1.2vw, 24px);
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.row input::placeholder,
+.row textarea::placeholder {
+    color: var(--basic-blue);
+    opacity: 1;
+    font-weight: bold;
+    text-align: center;
+}
+
+.row.fullwidth textarea {
+    width: 100%;
+    height: 24vh;
+    resize: none;
+}
+
+.formular-rechts {
+    flex: 1 1 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map {
+    width: 100%;
+    height: auto;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--basic-blue);
+    font-weight: bold;
+}
+
+@media (max-width: 50vw) {
+    .kontaktformular {
+        flex-direction: column;
+    }
+
+    .row {
+        flex-direction: column;
+
+    }
+    
+
+    .map {
+        height: 29vh;
+    }
+}
+@media (max-width: 768px) {
+    .row.fullwidth textarea {
+        width: 90vw;
+    }
+}
+
+.row.fullwidth button {
+    width: 100%;
+    height: 4vh;
+    resize: none;
+    color: white;
+    background-color: var(--basic-blue);
+    border: none;
+    font-size: clamp(12px, 1.2vw, 24px);
+}

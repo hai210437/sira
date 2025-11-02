@@ -1,0 +1,147 @@
+.textlinksservice {
+
+    margin-bottom: 10vh;
+    flex: 1 1 40%;
+    /* Mindestens 40% Breite, kann wachsen */
+    min-width: 300px;
+    /* Verhindert zu schmale Texte */
+}
+
+.text-plus-bild-services {
+    margin-top: 3vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1vh 10vw;
+    gap: 5vw;
+    font-size: clamp(12px, 1.5vw, 25px);
+    text-align: left;
+    color: var(--basic-blue);
+    margin-bottom: 1vh;
+    height: auto
+}
+
+.serviceblock {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1vw;
+    gap: 0.5vh;
+    margin-bottom: 10vh;
+    flex-direction: column;
+    flex: 1 1 45%;
+    min-width: 300px;
+    width: 50vw;
+    height: 45vh;
+    object-fit: cover;
+    font-size: clamp(8px, 1.5vw, 25px);
+
+}
+
+.service {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 40vw;
+    height: 10vh;
+    font-size: clamp(12px, 1.5vw, 20px);
+    background-color: var(--basic-blue);
+    color: white;
+    margin-top: 0.5vh;
+
+}
+
+.service h2 {
+    text-align: center;
+    color: white;
+    font-size: clamp(10px, 1.5vw, 200px);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: "Amiko";
+}
+
+
+.bild-hinter-service {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    width: 25vw;
+    height: 26vh;
+}
+
+.bild-hinter-service h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: clamp(5px, 2.5vw, 100px);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: "Amiko";
+    opacity: 0.7;
+    overflow-wrap: break-word;
+}
+
+.bild-hinter-service img {
+    display: block;
+    filter: brightness(50%);
+    transition: transform 0.7s ease, filter 0.3s ease;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.bild-hinter-service:hover img {
+    transform: scale(1.05);
+    z-index: 2000;
+}
+
+.partners {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 8vw;
+    gap: 1vw;
+    font-size: clamp(12px, 1.5vw, 25px);
+    text-align: left;
+    color: var(--basic-blue);
+    margin-bottom: 5vh;
+}
+.partners img {
+    width: auto;
+    height: 20vh;
+    object-fit: cover;
+}
+
+.partnerheader {
+    text-align: left;
+    color: var(--basic-blue);
+    font-size: clamp(20px, 3vw, 40px);
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+    margin-left: 10vw;
+}
+
+@media (max-width: 800px) {
+    .textlinksservice {
+        margin-bottom: 0;
+    }
+    .serviceblock {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1vh;
+    }
+    .partners{
+        align-items: center;
+        justify-content: center;
+    }
+
+}

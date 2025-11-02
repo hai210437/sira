@@ -1,0 +1,16 @@
+1. team: position nicht fett, kleiner, näher am Namen <-
+2. englischen slogan ändern 
+3. fußzeile navbar nicht fett <- 
+4. mehr abstand zwischen zitat und "unterschrift", gänsefüßchen unten, (vielleicht) zitat fett
+5. realestate: verkauf, vermiteung, etc. kleinere boxen, kleine schrift (minimal größer als fließtext)
+6. bewertungen: gleich lang wie die überschriften, vielleicht beim hovern dass es stehen bleibt, gänsefüßchen unten
+7. nachricht box mit karte abschließen
+8. finance: text in boxen kleiner, näher zusammen
+9. services: schrift in boxen kleiner, vielleicht die boxen gleich groß wie bei real estate
+10. Kontakt überschrift mehr abstand darüber -> alle seiten
+11. Karte: statt logo, normaler marker in dunkelblau
+12. landingpage: einheitlicher abstand vor und nach einzelnen komponenten (zb. unsere leistugnen überschrift)
+13. tbd. feedback überschrfit
+14. david fragen: website live aber noch nicht zugänglich
+15. data info abschließend mit fußzeilen navbar
+16. logos zbd einzeln schicken und höhere quali, logos kleiner
