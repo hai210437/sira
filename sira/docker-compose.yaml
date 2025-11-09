@@ -2,8 +2,28 @@ version: "3.9"
 
 services:
   webapp:
-    image: dein-dockerhub-user/dein-image:latest  # Das Image, das du mit 'docker push' hochgeladen hast
-    ports:
-      - "8080:80"  # z. B. http://localhost:8080 erreichbar
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sira-webapp
+    expose:
+      - "80"
     environment:
-      - MAP_KEY=${MAP_KEY}  # Der Key wird beim Start aus deiner .env-Datei gezogen
+      - VITE_MAP_KEY=${MAP_KEY}  # wird aus .env Ã¼bernommen
+
+  caddy:
+    image: caddy:latest
+    container_name: sira-caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - webapp
+
+volumes:
+  caddy_data:
+  caddy_config:

@@ -22,6 +22,7 @@
     "verkauf": "Verkauf",
     "vermietung": "Vermietung",
     "bewertung": "Bewertung",
+    "immobilien-ue": "Finden Sie Ihre passende Immobilie",
     "bewertungen-ue": "Das sagen unsere Kunden",
     "bewertungen": {
         "bewertung1": {
@@ -126,12 +127,12 @@
                     "SIRA Real Estate GmbH",
                     "Kärntner Straße 21-23/3/10",
                     "1010 Wien, Österreich",
-                    "Tel: +43 1961 9861",
+                    "Tel: 0660 2332 003",
                     "E-Mail: office@sira-group.at",
-                    "Web: www.XXXX.at",
+                    "Web: www.sira-group.at",
                     "Geschäftsführer: Simon Jaros und Mario Markovic",
                     "Firmenbuchgericht: Handelsgericht Wien",
-                    "Firmenbuchnummer: FN XXXX",
+                    "Firmenbuchnummer: FN665251k",
                     "UID-Nr.: ATUXXXX",
                     "Rechtsform: Gesellschaft mit beschränkter Haftung",
                     "Sitz: Wien",
@@ -142,9 +143,8 @@
             {
                 "heading": "Bankdaten",
                 "paragraphs": [
-                    "XYZ Bank",
-                    "IBAN: AT00 XXXX XXXX XXXX XXXX",
-                    "BIC: XYZBATWW"
+                    "Raiffeisen Regionalbank Mödling",
+                    "IBAN: AT15 3225 0000 0107 5845"
                 ]
             },
             {

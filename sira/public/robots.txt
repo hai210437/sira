@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.deine-domain.at/sitemap.xml
+Sitemap: https://www.sira-group.at/sitemap.xml

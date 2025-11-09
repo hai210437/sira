@@ -22,6 +22,7 @@
     "verkauf": "Sale",
     "vermietung": "Rental",
     "bewertung": "Evaluation",
+    "immobilien-ue": "Find your ideal property",
     "bewertungen-ue": "What our customers say",
     "bewertungen": {
         "bewertung1": {
@@ -126,12 +127,12 @@
                     "SIRA Real Estate GmbH",
                     "Kärntner Straße 21–23/3/10",
                     "1010 Vienna, Austria",
-                    "Tel: +43 1961 9861",
+                    "Tel: 0660 2332 003",
                     "E-mail: office@sira-group.at",
-                    "Web: www.XXXX.at",
+                    "Web: www.sira-group.at",
                     "Managing Directors: Simon Jaros and Mario Markovic",
                     "Commercial Court: Commercial Court of Vienna",
-                    "Company Register No.: FN XXXX",
+                    "Company Register No.: FN665251k",
                     "VAT No.: ATUXXXX",
                     "Legal Form: Limited Liability Company (GmbH)",
                     "Registered Office: Vienna",
@@ -142,9 +143,8 @@
             {
                 "heading": "Bank Details",
                 "paragraphs": [
-                    "XYZ Bank",
-                    "IBAN: AT00 XXXX XXXX XXXX XXXX",
-                    "BIC: XYZBATWW"
+                    "Raiffeisen Regionalbank Mödling",
+                    "IBAN: AT15 3225 0000 0107 5845"
                 ]
             },
             {

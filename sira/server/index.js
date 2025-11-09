@@ -19,9 +19,11 @@ app.get("/api/justimmo", async (req, res) => {
 
   const parser = new XMLParser();
 
+  const params = `picturesize=big&limit=${LIMIT}&offset=${offset}`;
+
   try {
     while (true) {
-      const url = `${baseUrl}?limit=${LIMIT}&offset=${offset}`;
+      const url = `${baseUrl}?${params}`;
       const response = await fetch(url, {
         headers: {
           "Authorization": auth,
