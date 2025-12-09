@@ -30,7 +30,7 @@ const StandortKarte: React.FC = () => {
         }
 
         const script = document.createElement("script");
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyA3UQbDrxu8lNEZJq-rTXbpxdjUBYETlWI&libraries=maps,marker&v=beta&loading=async`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=dachtestlol&libraries=maps,marker&v=beta&loading=async`;
         script.async = true;
         script.defer = true;
         script.onload = () => resolve();
