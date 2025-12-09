@@ -55,11 +55,13 @@ const Team: React.FC = () => {
                             src={member.normal}
                             alt={`Team member ${index + 1}`}
                             className="member-image normal"
+                            rel="preload"
                         />
                         <img
                             src={member.closeup}
                             alt={`Team member ${index + 1} closeup`}
                             className="member-image closeup"
+                            rel="preload"
                         />
                         <div className="info-overlay">
                             <h3>{member.name}</h3>

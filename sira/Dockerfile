@@ -30,7 +30,7 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Optional: eigene nginx.conf für sauberes Routing (SPA-Support)
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Port 80 (für NPM Reverse Proxy)
 EXPOSE 80

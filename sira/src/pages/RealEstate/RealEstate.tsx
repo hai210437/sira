@@ -79,7 +79,7 @@ const RealEstate: React.FC = () => {
             <NavBar isLandingpage={false}></NavBar>
             <div className="real-estate">
                 <div className="bild-hinter-slogan">
-                    <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} />
+                    <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }}  rel="preload"/>
                     <h1 className="header"> {t("SIRA REAL ESTATE")}
                     </h1>
                 </div>
@@ -111,31 +111,6 @@ const RealEstate: React.FC = () => {
 
                 </div>
             </div>
-            {/*
-            <h2 className="immobilien-ue">{t("immobilien-ue")}</h2>
-            <div className="immobilien">
-                {immobilien.map((immobilie, index) => (
-                    <div className="immobilienblock" key={index}>
-                        <div className="immobilien-bild-wrapper">
-                            <img
-                                src={immobilie.erstes_bild}
-                                alt={`Team member ${index + 1}`}
-                                className="immobilien-bild eins"
-                            />
-                            <img
-                                src={immobilie.zweites_bild}
-                                alt={`Team member ${index + 1} closeup`}
-                                className="immobilien-bild zwei"
-                            />
-                            <div className="immo-overlay">
-                                <h3>{immobilie.plz}</h3>
-                                <h4>{immobilie.ort}</h4>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-            */}
             <h2 className="bewertungen-ue">{t("bewertungen-ue")}</h2>
             <div className="bewertungen" style={{ overflow: "hidden" }}>
                 <div className="bewertung-block"

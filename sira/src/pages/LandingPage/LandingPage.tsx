@@ -29,7 +29,7 @@ const LandingPage: React.FC = () => {
             </Helmet>
             <NavBar isLandingpage={true} ></NavBar>
             <div className="bild-hinter-slogan-landing">
-                <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} />
+                <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} rel="preload"/>
                 <h1 className="slogan-landing" style={{ width: "50vw" }}> {t("slogan")}
                 </h1>
             </div>
@@ -47,11 +47,11 @@ const LandingPage: React.FC = () => {
                         {t("landingtext1.1")}
                     </p>
                 </div>
-                <img src={landing_2} />
+                <img src={landing_2} rel="preload"/>
             </div>
 
             <div className="text-plus-bild-landing">
-                <img src={landing_3} style={{ width: "60vw", height: "45vh", objectFit: "cover" }} />
+                <img src={landing_3} style={{ width: "60vw", height: "45vh", objectFit: "cover" }} rel="preload"/>
                 <div>
                     <h2>
                         {t("landingheader2")}
@@ -71,19 +71,19 @@ const LandingPage: React.FC = () => {
             <div className="leistungen-landing">
                 <Link to="/real-estate" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <div className="bild-hinter-leistung-landing">
-                        <img src={real_estate_logo} />
+                        <img src={real_estate_logo} rel="preload"/>
 
                     </div>
                 </Link>
                 <Link to="/finance" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <div className="bild-hinter-leistung-landing">
-                        <img src={finance_logo} />
+                        <img src={finance_logo} rel="preload"/>
 
                     </div>
                 </Link>
                 <Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <div className="bild-hinter-leistung-landing">
-                        <img src={services_logo} />
+                        <img src={services_logo} rel="preload"/>
                     </div>
                 </Link>
             </div>

@@ -37,7 +37,7 @@ const Services: React.FC = () => {
         <NavBar isLandingpage={false}></NavBar>
         <div className="services">
             <div className="bild-hinter-slogan">
-                <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} />
+                <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} rel="preload"/>
                 <h1 className="header"> {t("SERVICES")}
                 </h1>
             </div>
@@ -71,7 +71,7 @@ const Services: React.FC = () => {
             </h2>
             <div className="partners">
                 {partner.map((partner) => (
-                    <img src={partner}></img>
+                    <img src={partner} rel="preload"></img>
                 ))}
             </div>
             <h2 className="kontaktheader">{t("kontakt")}</h2>

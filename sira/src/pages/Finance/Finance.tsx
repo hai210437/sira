@@ -29,7 +29,7 @@ const Finance: React.FC = () => {
         <NavBar isLandingpage={false}></NavBar>
         <div className="real-estate">
             <div className="bild-hinter-slogan">
-                <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} />
+                <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} rel="preload"/>
                 <h1 className="header"> {t("SIRA FINANCE")}
                 </h1>
             </div>
@@ -43,7 +43,7 @@ const Finance: React.FC = () => {
                         {t("financetext")}
                     </p>
                 </div>
-                <img src={finance_1} style={{ width: "50vw", height: "46vh", objectFit: "cover" }} />
+                <img src={finance_1} style={{ width: "50vw", height: "46vh", objectFit: "cover" }} rel="preload"/>
             </div>
             <div className="finanzleistungen">
                 {finanzleistungen.map((leistung) => (

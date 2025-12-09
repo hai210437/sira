@@ -10,7 +10,13 @@ app.get("/api/justimmo", async (req, res) => {
   const baseUrl = "https://api.justimmo.at/rest/v1/objekt/list";
   const user = process.env.JUSTIMMO_USER;
   const pass = process.env.JUSTIMMO_PASSWORD;
+  let lang = req.query.lang || 'de';
+  if (lang !== 'de' && lang !== 'en') {
+    lang = 'en'; // Fallback auf Deutsch, wenn Sprache nicht unterstützt wird
+  }
+
   const auth = "Basic " + Buffer.from(`${user}:${pass}`).toString("base64");
+
   console.log("Hole JustImmo Objekte...");
 
   const LIMIT = 100;
@@ -19,7 +25,7 @@ app.get("/api/justimmo", async (req, res) => {
 
   const parser = new XMLParser();
 
-  const params = `picturesize=big&limit=${LIMIT}&offset=${offset}`;
+  const params = `picturesize=uhd&limit=${LIMIT}&offset=${offset}`;
 
   try {
     while (true) {

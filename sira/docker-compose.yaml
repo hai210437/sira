@@ -10,20 +10,14 @@ services:
       - "80"
     environment:
       - VITE_MAP_KEY=${MAP_KEY}  # wird aus .env Ã¼bernommen
+  api:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: sira-api
+    expose:
+      - "8080" # extern zugänglich, optional intern nur
+    environment:
+      - JUSTIMMO_USER=${JUSTIMMO_USER}
+      - JUSTIMMO_PASSWORD=${JUSTIMMO_PASSWORD}
 
-  caddy:
-    image: caddy:latest
-    container_name: sira-caddy
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      - webapp
-
-volumes:
-  caddy_data:
-  caddy_config:

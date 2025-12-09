@@ -7,6 +7,8 @@ import Team from "./pages/Team/Team";
 import Kontakt from "./pages/Kontakt/Kontakt";
 import Impressum from "./pages/Impressum/Impressum";
 import Datenschutz from "./pages/Datenschutz/Datenschutz";
+import Immobilien from "./pages/Immobilien/Immobilien";
+import ImmobilienDetails from "./pages/Immo-Details/ImmobilienDetails";
 
 function WebRoutes() {
     return (
@@ -20,6 +22,8 @@ function WebRoutes() {
                 <Route path="/kontakt" element={<Kontakt />} />
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="/datenschutz" element={<Datenschutz />} />
+                <Route path="/immobilien" element={<Immobilien />} />
+                <Route path="/immobilien/:id" element={<ImmobilienDetails />} />
             </Routes>
         </Router>
     );
