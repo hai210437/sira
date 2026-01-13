@@ -1,0 +1,66 @@
+aktualisiert_am
+: 
+"2025-10-31 17:41:05"
+anzahl_balkons
+: 
+1
+anzahl_zimmer
+: 
+2
+balkons_flaeche
+: 
+10.71
+dreizeiler
+: 
+""
+erstellt_am
+: 
+"2025-10-30 11:41:31"
+erstes_bild
+: 
+"https://storage.justimmo.at/thumb/c4e5dbc42e30488eb8cdf84e0e24aedd/fc_h300_w100/6qFo7XG4kOeYvACwYjwBX8.jpg"
+etage
+: 
+"1. DG"
+id
+: 
+15700126
+kaufpreis
+: 
+379900
+naehe
+: 
+"Amalienbad, U-Bahn U1, Paltramplatz, PH Wien"
+objektbeschreibung
+: 
+"<p><strong>Sicher investieren. Clever wohnen. 2-Zimmer-Neubau in gefragter Lage!</strong><br />&#13;\n<br />&#13;\nIn einer ruhigen Wohnstraße im aufstrebenden 10. Bezirk Wiens entsteht bis <strong>Ende 2025</strong> ein modernes <strong>Neubauprojekt</strong>, das mit durchdachter Planung, hochwertiger Ausstattung und hervorragender Anbindung überzeugt. Die zentrale, aber zurückgezogene Lage in unmittelbarer Nähe zur Inzersdorfer Straße und der U1 macht diese Immobilie zu einer zukunftssicheren Gelegenheit – <strong>ideal für ErstanlegerInnen wie auch für EigennutzerInnen</strong> mit Anspruch an Kompaktheit, Qualität und Lage.<br />&#13;\n<br />&#13;\n<strong>Was diese Wohnung auszeichnet:</strong></p>&#13;\n&#13;\n<ul>&#13;\n\t<li><strong>Baujahr</strong> 2025</li>&#13;\n\t<li><strong>Intelligent</strong> geplantes <strong>2-Zimmer-Layout ca. 55 m² WNFL</strong> – perfekt für Singles, Paare oder Vermietung</li>&#13;\n\t<li><strong>Balkon</strong>: 10,71m²</li>&#13;\n\t<li><strong>Einbauküche</strong> im Kaufpreis enthalten – sofort bezugs- oder vermietbar</li>&#13;\n\t<li><strong>Fußbodenheizung</strong> über <strong>Fernwärme</strong> – energieeffizient & nachhaltig</li>&#13;\n\t<li><strong>Parkett</strong> & hochwertige <strong>Fliesen</strong> – langlebige Ausstattung</li>&#13;\n\t<li><strong>Kellerabteil</strong>, Fahrrad- & Kinderwagenräume sowie Tiefgarage im Haus</li>&#13;\n\t<li><strong>Barrierefreier</strong> <strong>Zugang</strong> mit Aufzug</li>&#13;\n\t<li><strong>Niedrige Betriebskosten</strong> - aufgrund von Fernwärme und PV-Anlage</li>&#13;\n</ul>&#13;\n&#13;\n<p><br />&#13;\n<strong>Anlegerpreis</strong>: € 379.000,– netto zzgl. UST<br />&#13;\n<strong>Eigennutzerpreis</strong>: € 424.900,– <br />&#13;\n<br />&#13;\n<strong>Garagenstellplatz</strong> optional: € 25.500,– netto zzgl. 20 % USt<br />&#13;\n<br />&#13;\n<strong>Diese Wohnung bietet die perfekte Kombination aus urbaner Lage, funktionalem Design und wertstabiler Investition.</strong> Ob als Einstieg in den Immobilienmarkt oder als langfristige Vorsorge – hier treffen kluge Entscheidung und solide Wohnqualität aufeinander.<br />&#13;\n<br />&#13;\n<strong>DISCLAIMER: </strong>Bei den dargestellten Visualisierungen handelt es sich teilweise um Einrichtungsvorschläge. Die tatsächliche Ausführung kann vom Bildmaterial abweichen und jegliche Haftung wird ausgeschlossen. <br />&#13;\n<br />&#13;\nWir weisen darauf hin, dass zwischen dem Vermittler und dem zu vermittelnden Dritten ein familiäres oder wirtschaftliches Naheverhältnis besteht.<br />&#13;\n<br />&#13;\nDer Vermittler ist als Doppelmakler tätig.</p>&#13;\n&#13;\n<p> </p>&#13;\n&#13;\n<p> </p>&#13;\n&#13;\n<p> </p>&#13;\n&#13;\n<p> </p>&#13;\n&#13;\n<p> </p>&#13;\n&#13;\n<p> </p>&#13;\n&#13;\n<p> </p>&#13;\n&#13;\n<p> </p>&#13;\n&#13;\n<p> </p>&#13;\n&#13;\n<p> </p>"
+objektkategorie
+: 
+{nutzungsart: '', vermarktungsart: '', objektart: {…}, user_defined_simplefield: Array(4)}
+objektnummer
+: 
+"2038/352"
+ort
+: 
+"Wien"
+plz
+: 
+1100
+preis
+: 
+379900
+status
+: 
+"aktiv"
+status_id
+: 
+5
+titel
+: 
+"STEPHANSDOMBLICK - Erstbezug - 2 Zimmer - ca. 55 m² WNFL - Küche inklusive - KLIMAANLAGE"
+wohnflaeche
+: 
+51.11
+zweites_bild
+: 
+"https://storage.justimmo.at/thumb/a02b1ccb330e72ed72f6a355b6b24a02/fc_h300_w100/KqyMkroiZwZWAho3Qi1Nq.jpg"

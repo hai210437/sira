@@ -1,0 +1,308 @@
+{
+    "kontakt": "Kontakt",
+    "slogan": "Immobilien verstehen!",
+    "sira": "SIRA",
+    "landingheader1": " Ihr Partner für Immobilienlösungen",
+    "landingtext1": "Aus dem Traum zweier Brüder wurde ein etabliertes Maklerunternehmen im Herzen Wiens. Die SIRA Gruppe entstand aus einer einfachen Überzeugung: Immobiliengeschäfte sollen persönlicher, transparenter und verständnisvoller sein.",
+    "landingtext1.1": "Aufgewachsen mit Werten wie Handschlagqualität und Verlässlichkeit, leben wir diese Haltung in jedem Schritt unserer Arbeit. Für uns ist jede Immobilie, jeder Kunde und jede Geschichte einzigartig. Denn hinter jeder Tür stehen nicht nur vier Wände, sondern Lebensträume.",
+    "landingheader2": "Wir verstehen Immobilien als langfristige Werte",
+    "landingtext2": "Als Immobilienmakler definieren wir unsere Rolle weit über den reinen Transaktionsprozess hinaus. Von der ersten Beratung, bis zur Schlüsselübergabe und darüber hinaus stehen wir Ihnen als kompetenter Partner zur Seite. Mit fundierter Marktexpertise, absoluter Diskretion und präziser Abwicklung gewährleisten wir den erfolgreichen Abschluss Ihres Immobilienprojekts.",
+    "zitat1": "\"Menschen stehen bei uns stets im Mittelpunkt. Jeder bringt individuelle Anforderungen und Erwartungen mit, weshalb wir ausnahmslos maßgeschneiderte Beratungsansätze und Lösungen entwickeln.",
+    "zitat2": "Das ist unser Versprechen und unsere Berufung.\"",
+    "unterschrift": " — Geschäftsführer, SIRA",
+    "leistungen": "Unsere Leistungen",
+    "standortheader": "Wo Sie uns finden",
+    "standorttext": "Mitten im 1. Bezirk in Wien gelegen, ist unser Firmensitz, die zentrale Anlaufstelle für alle Immobilienprojekte. Die hervorragende Lage ermöglicht kurze Wege, effiziente Abläufe und persönliche Betreuung unserer Kunden.",
+    "datenschutz": "Datenschutz",
+    "impressum": "Impressum",
+    "cookies": "Cookie-Richtlinie (EU)",
+    "estateheader1": "Unsere Kompetenzen",
+    "estatetext1": "Wir begleiten Sie von der ersten Idee bis zur erfolgreichen Umsetzung und stehen Ihnen in jeder Phase verlässlich zur Seite. Von der Bewertung bis zur Schlüsselübergabe führen wir alle Schritte mit größter Sorgfalt durch.",
+    "estatetext2": "Unser Leistungsspektrum umfasst Verkauf, Vermietung, Verwaltung, Entwicklung und persönliche Betreuung aus einer Hand. So stellen wir sicher, dass Ihre Immobilie optimal präsentiert wird und die richtigen Interessenten erreicht.",
+    "verkauf": "Verkauf",
+    "vermietung": "Vermietung",
+    "bewertung": "Bewertung",
+    "immobilien-ue": "Unsere aktuelle Auswahl",
+    "mehr-immobilien-button": "Alle Immobilien anzeigen",
+    "bewertungen-ue": "Das sagen unsere Kunden",
+    "bewertungen": {
+        "bewertung1": {
+            "text": "\"Ich bin höchst zufrieden mit der Betreuung. Ich verdanke ihm eine äußerst professionelle und effiziente Abwicklung meiner Agenden, er hat eine sympathische Persönlichkeit und war wirklich sehr engagiert bei der Suche nach Mietern für meine Wohnung.\"",
+            "name": "Katharina S."
+        },
+        "bewertung2": {
+            "text": "\"Ich bin äußerst zufrieden mit der gesamten Betreuung. Von der ersten Kontaktaufnahme bis zur Vertragsunterzeichnung verlief alles reibungslos und professionell. Besonders beeindruckt hat mich seine Geduld und das ehrliche Engagement, mit dem er passende Mieter für meine Wohnung gefunden hat.\"",
+            "name": "Martin K."
+        },
+        "bewertung3": {
+            "text": "\"Die Zusammenarbeit war von Anfang an vertrauensvoll und angenehm. Ich wurde jederzeit bestens beraten und über jeden Schritt informiert. Durch seine kompetente und engagierte Art konnte die Vermietung meiner Immobilie rasch und erfolgreich abgeschlossen werden.\"",
+            "name": "Julia M."
+        },
+        "bewertung4": {
+            "text": "\"Ich kann die Betreuung nur wärmstens empfehlen. Seine professionelle Herangehensweise, kombiniert mit einer sehr sympathischen Persönlichkeit, hat den gesamten Prozess unkompliziert und angenehm gestaltet. Besonders schätze ich die schnelle Kommunikation und die Zuverlässigkeit.\"",
+            "name": "Andreas P."
+        },
+        "bewertung5": {
+            "text": "\"Ich habe mich während des gesamten Vermittlungsprozesses rundum gut aufgehoben gefühlt. Die Betreuung war äußerst professionell, freundlich und effizient. Durch sein Engagement konnte meine Wohnung in kurzer Zeit an sehr passende Mieter vermittelt werden.\"",
+            "name": "Lisa W."
+        },
+        "bewertung6": {
+            "text": "\"Ich bin wirklich beeindruckt von der Qualität der Betreuung. Mit viel Fachwissen, Geduld und Einfühlungsvermögen wurde auf meine Wünsche eingegangen. Die Abwicklung verlief rasch und problemlos – ich würde jederzeit wieder seine Unterstützung in Anspruch nehmen.\"",
+            "name": "Claudia F."
+        },
+        "bewertung7": {
+            "text": "\"Ich bin ausgesprochen dankbar für die hervorragende Unterstützung bei der Vermietung meiner Wohnung. Er hat sich um jedes Detail gekümmert und war stets erreichbar, wenn Fragen auftauchten. Die Abwicklung verlief äußerst professionell und angenehm.\"",
+            "name": "Petra B."
+        },
+        "bewertung8": {
+            "text": "\"Von Anfang bis Ende war die Betreuung einfach top. Ich hatte nie das Gefühl, allein gelassen zu werden, und wurde immer transparent über den aktuellen Stand informiert. Besonders hervorheben möchte ich seine freundliche und kompetente Art.\"",
+            "name": "Johannes H."
+        },
+        "bewertung9": {
+            "text": "\"Ich wurde während des gesamten Prozesses ausgezeichnet betreut. Seine strukturierte Vorgehensweise und das hohe Engagement haben mich wirklich überzeugt. Die Zusammenarbeit war effizient, angenehm und menschlich zugleich.\"",
+            "name": "Alexander D."
+        },
+        "bewertung10": {
+            "text": "\"Die Vermittlung meiner Immobilie verlief absolut reibungslos. Er war stets professionell, freundlich und hat sich mit großem Einsatz um alles gekümmert. Ich schätze besonders seine Zuverlässigkeit und die offene Kommunikation.\"",
+            "name": "Veronika L."
+        },
+        "bewertung11": {
+            "text": "\"Ich bin sehr zufrieden mit der Betreuung und dem Ergebnis. Durch seine Erfahrung und sein Engagement wurde schnell ein passender Mieter gefunden. Besonders positiv war die angenehme, persönliche Atmosphäre bei allen Gesprächen.\"",
+            "name": "Michael G."
+        },
+        "bewertung12": {
+            "text": "\"Die Zusammenarbeit war ausgezeichnet – äußerst zuverlässig, freundlich und kompetent. Ich fühlte mich während des gesamten Prozesses bestens betreut.\"",
+            "name": "Sabine R."
+        },
+        "bewertung13": {
+            "text": "\"Ich war beeindruckt von der schnellen und reibungslosen Abwicklung. Alles verlief transparent und ehrlich – genau so wünscht man sich das.\"",
+            "name": "Thomas L."
+        },
+        "bewertung14": {
+            "text": "\"Top Betreuung von Anfang bis Ende! Ich hatte stets das Gefühl, in guten Händen zu sein. Vielen Dank für die großartige Unterstützung.\"",
+            "name": "Julia M."
+        },
+        "bewertung15": {
+            "text": "\"Kompetent, freundlich und zuverlässig – besser hätte es nicht laufen können. Die Beratung war erstklassig und sehr individuell.\"",
+            "name": "Andreas P."
+        }
+    },
+    "financeheader": "Unser Ziel: Sicherheit, Effizienz und Diskretion in allen Finanzprozessen.",
+    "financetext": "Eine solide Finanzierung ist die Grundlage jeder erfolgreichen Immobilie. Mit Fachwissen und einem starken Netzwerk entwickeln wir maßgeschneiderte Lösungen, von klassischer Immobilienfinanzierung bis hin zu individuellen Investmentstrategien.",
+    "finanzleistung1": "Finanzierungslösungen",
+    "finanzleistung2": "Vermögensaufbau",
+    "finanzleistung3": "Investment & Veranlagung",
+    "serviceheader1": "Viele Sorgen, eine Lösung",
+    "servicetext1": "Wir begleiten Sie bei allen Schritten rund um Ihre Immobilie. Von Projektmanagement und Beratung über Verwaltung und Rechtsfragen bis zu Vermögensverwaltung und Steueroptimierung stehen wir Ihnen strategisch zur Seite.",
+    "servicetext2": "In enger Zusammenarbeit mit unseren Partnern entwickeln wir Lösungen, die Prozesse effizient gestalten, langfristige Werte sichern und nachhaltigen Erfolg ermöglichen.",
+    "service1": "Projektmanagement",
+    "service2": "Strategische Begleitung & Consulting",
+    "service3": "Verwaltung & Rechtsberatung",
+    "service4": "Vermögensverwaltung",
+    "service5": "Steueroptimierung",
+    "partnerheader": "Unsere Partner",
+    "teamheader": "Unser Team",
+    "teamtext1": "Das Team der SIRA Gruppe vereint leidenschaftliche Experten mit umfangreichem Wissen. Wir hören zu, verstehen die Wünsche unserer Kunden und entwickeln gemeinsam passende Lösungen.",
+    "teamtext2": "Für uns geht es nicht nur um Immobilien. Es geht um die Menschen und ihre Träume, die wir mit Ihnen verwirklichen möchten.",
+    "vorname": "Vorname",
+    "nachname": "Nachname",
+    "telefon": "Telefon",
+    "nachricht": "Ihre Nachricht",
+    "senden": "SENDEN",
+    "kontaktheader": "Kontaktieren Sie uns",
+    "kontakttext": "Für Ihre Fragen, Anliegen oder persönliche Beratungsgespräche stehen wir Ihnen gerne zur Verfügung. Ob erstes Kennenlernen oder konkrete Projektanfrage, wir freuen uns auf den Kontakt mit Ihnen und antworten schnell und zuverlässig. Nutzen Sie dazu unser Kontaktformular oder kontaktieren Sie uns direkt per E-Mail oder Telefon.",
+    "kontaktformular": "Kontaktformular",
+    "unserstandort": "Unser Standort",
+    "erreichbar": "Erreichbar unter",
+    "impressumcontent": {
+        "sections": [
+            {
+                "heading": "Impressum",
+                "paragraphs": [
+                    "Impressum und Offenlegung gemäß § 24, 25 Mediengesetz und Informationen gemäß § 5 ECG und § 14 Unternehmensgesetzbuch."
+                ]
+            },
+            {
+                "heading": "Firmendaten",
+                "paragraphs": [
+                    "SIRA Real Estate GmbH",
+                    "Kärntner Straße 21-23/3/10",
+                    "1010 Wien, Österreich",
+                    "Tel: 0660 2332 003",
+                    "E-Mail: office@sira-group.at",
+                    "Web: www.sira-group.at",
+                    "Geschäftsführer: Simon Jaros und Mario Markovic",
+                    "Firmenbuchgericht: Handelsgericht Wien",
+                    "Firmenbuchnummer: FN665251k",
+                    "UID-Nr.: ATU 82676668",
+                    "Rechtsform: Gesellschaft mit beschränkter Haftung",
+                    "Sitz: Wien",
+                    "Kammerzugehörigkeit: Wirtschaftskammer Wien",
+                    "Zuständige Gewerbebehörde: Magistratisches Bezirksamt für den 1. Bezirk"
+                ]
+            },
+            {
+                "heading": "Bankdaten",
+                "paragraphs": [
+                    "Raiffeisen Regionalbank Mödling",
+                    "IBAN: AT15 3225 0000 0107 5845"
+                ]
+            },
+            {
+                "heading": "Gewerbe",
+                "paragraphs": [
+                    "§ Immobilientreuhänder (Immobilienmakler, Immobilienverwalter, Bauträger), eingeschränkt auf Bauträger und Immobilienmakler"
+                ]
+            },
+            {
+                "heading": "Anwendbare gewerbe- und berufsrechtliche Vorschriften",
+                "paragraphs": [
+                    "§ Bauträgervertragsgesetz",
+                    "§ Gewerbeordnung",
+                    "§ Gesetz über Gesellschaften mit beschränkter Haftung",
+                    "§ Maklergesetz",
+                    "§ Standes- und Ausübungsregeln für Immobilienmakler",
+                    "§ Allgemeine Richtlinien für Immobilientreuhänder"
+                ]
+            },
+            {
+                "heading": "Gewerbe- und berufsrechtliche Vorschriften können folgend eingesehen werden",
+                "paragraphs": [
+                    "www.wko.at",
+                    "www.ris.bka.gv.at"
+                ]
+            },
+            {
+                "heading": "Urheberrechte",
+                "paragraphs": [
+                    "Die Inhalte dieser Website unterliegen dem Urheberrecht. Eine Veröffentlichung oder Weiterverwendung von Texten, Bildern oder anderen Materialien ist ausschließlich mit der ausdrücklichen Zustimmung von SIRA Real Estate erlaubt."
+                ]
+            },
+            {
+                "heading": "Haftungsausschluss",
+                "paragraphs": [
+                    "Alle Informationen auf dieser Website wurden mit größter Sorgfalt erstellt und nach bestem Wissen geprüft. Dennoch kann nicht ausgeschlossen werden, dass sich Fehler oder Unvollständigkeiten eingeschlichen haben.",
+                    "SIRA Real Estate übernimmt daher keinerlei Gewähr für die Aktualität, Richtigkeit und Vollständigkeit der bereitgestellten Angaben.",
+                    "Dies gilt ebenso für externe Links, die auf dieser Website genannt werden. Für deren Inhalte sind ausschließlich die jeweiligen Betreiber verantwortlich."
+                ]
+            }
+        ]
+    },
+    "datenschutzcontent": {
+        "sections": [
+            {
+                "heading": "Datenschutzerklärung",
+                "paragraphs": [
+                    "Der Schutz Ihrer personenbezogenen Daten ist uns ein besonderes Anliegen. SIRA Real Estate verarbeitet personenbezogene Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003) sowie sonstiger anwendbarer Gesetze."
+                ]
+            },
+            {
+                "heading": "Verantwortlicher",
+                "paragraphs": [
+                    "SIRA Real Estate",
+                    "Kärntner Straße 21-23/3/10",
+                    "1010 Wien, Österreich",
+                    "Tel: +43 1961 9861",
+                    "E-Mail: office@sira-group.at",
+                    "Es ist kein Datenschutzbeauftragter bestellt, da keine gesetzliche Verpflichtung besteht."
+                ]
+            },
+            {
+                "heading": "Kategorien personenbezogener Daten",
+                "paragraphs": [
+                    "Je nach Anlass werden folgende Datenkategorien verarbeitet:",
+                    "• Kontaktdaten: Name, Adresse, Telefonnummer, E-Mail",
+                    "• Daten aus Anfragen, Formularen und Verträgen",
+                    "• Korrespondenz mit Kunden, Interessenten oder Partnern",
+                    "• Daten von Dienstleistern, Vertragspartnern, Hausverwaltungen, Maklern, Finanzierungsinstituten",
+                    "• Ggf. Mitarbeiterdaten, soweit zur Vertragserfüllung oder gesetzlicher Pflicht notwendig",
+                    "• Informationen aus öffentlichen Registern oder von Dritten übermittelte Daten"
+                ]
+            },
+            {
+                "heading": "Zwecke der Datenverarbeitung",
+                "paragraphs": [
+                    "Die Daten werden für folgende Zwecke verarbeitet:",
+                    "• Bearbeitung von Anfragen, Immobilienangeboten und Verträgen",
+                    "• Kundenbetreuung, Abrechnung, Buchhaltung, CRM, Controlling und Reporting",
+                    "• Erfüllung gesetzlicher Pflichten, z. B. Steuer- und Dokumentationspflichten, Geldwäschegesetz",
+                    "• Versand von Informationen (nur nach vorheriger Einwilligung)",
+                    "• Sicherstellung der IT-Sicherheit und Verbesserung von Geschäftsprozessen",
+                    "• Vermeidung von Spam und Missbrauch der Dienste"
+                ]
+            },
+            {
+                "heading": "Rechtsgrundlagen der Verarbeitung",
+                "paragraphs": [
+                    "Die Verarbeitung personenbezogener Daten erfolgt auf Grundlage von:",
+                    "• Art. 6 Abs. 1 lit. b DSGVO – Vertragserfüllung und vorvertragliche Maßnahmen",
+                    "• Art. 6 Abs. 1 lit. c DSGVO – Erfüllung gesetzlicher Pflichten",
+                    "• Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse (z. B. effiziente Geschäftsabwicklung, IT-Sicherheit, Marketing an Bestandskunden)",
+                    "• Art. 6 Abs. 1 lit. a DSGVO – Einwilligung (z. B. Marketing, optionale Cookies)"
+                ]
+            },
+            {
+                "heading": "Speicherdauer und Datensicherheit",
+                "paragraphs": [
+                    "Personenbezogene Daten werden nur so lange gespeichert, wie dies für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungs- und Verjährungsfristen bestehen.",
+                    "Daten werden gemäß Art. 5 DSGVO (Datenminimierung, Speicherbegrenzung) und Art. 32 DSGVO (Sicherheit der Verarbeitung) geschützt."
+                ]
+            },
+            {
+                "heading": "Empfänger der Daten",
+                "paragraphs": [
+                    "Eine Weitergabe erfolgt nur im erforderlichen Umfang, z. B. an:",
+                    "• Interne Abteilungen von SIRA Real Estate",
+                    "• An der Vermittlung beteiligte Partner (Makler, Plattformen, Hausverwaltungen, Finanzierungsinstitute, Versicherungen)",
+                    "• Externe Dienstleister wie IT-Provider, Steuerberater, Rechtsanwälte oder Behörden",
+                    "• Drittländer außerhalb der EU nur bei Vorliegen geeigneter Schutzmaßnahmen (Standarddatenschutzklauseln, Angemessenheitsbeschluss)",
+                    "Keine Weitergabe der Daten zu Werbezwecken ohne Einwilligung."
+                ]
+            },
+            {
+                "heading": "Cookies und Tracking",
+                "paragraphs": [
+                    "Unsere Website verwendet Cookies. Dabei handelt es sich um kleine Textdateien, die beim Aufruf unserer Website auf Ihrem Computer oder Smartphone gespeichert und/oder ausgelesen werden. Cookies können keine Programme ausführen oder Viren übertragen.",
+                    "Wir unterscheiden folgende Kategorien:",
+                    "• Essenzielle Cookies: notwendig für den Betrieb der Website, zur Darstellung, Stabilität und Sicherheit. Werden beim Verlassen gelöscht (Sitzungscookies).",
+                    "• Statistik- und Marketing-Cookies: werden zur Analyse des Nutzerverhaltens, zur Wiedererkennung von Besuchern, zur Personalisierung von Inhalten und Anzeigen sowie zur Umsetzung von Marketingzielen verwendet. Diese Cookies werden nur gesetzt, wenn Sie vorher eingewilligt haben.",
+                    "Drittanbieter:",
+                    "Einige Cookies stammen von Drittanbietern wie Google LLC oder Meta Platforms Ireland Limited (USA). Vor der Verarbeitung in diesen Drittanbieterdiensten holen wir Ihre Einwilligung ein. Hinweise zu Zwecken und Speicherdauer finden Sie im Cookie-Banner.",
+                    "Widerruf und Browsereinstellungen:",
+                    "• Ihre Einwilligung in Cookies können Sie jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie Ihre Präferenzen unter „Datenschutzeinstellungen“ auf unserer Website anpassen.",
+                    "• Alternativ können Sie die Annahme von Cookies über die Einstellungen Ihres Browsers blockieren oder löschen. Beachten Sie jedoch, dass dann unter Umständen nicht alle Funktionen der Website verfügbar sind."
+                ]
+            },
+            {
+                "heading": "Betroffenenrechte",
+                "paragraphs": [
+                    "Als betroffene Person haben Sie nach DSGVO folgende Rechte:",
+                    "• Auskunft über Ihre gespeicherten Daten",
+                    "• Berichtigung unrichtiger oder unvollständiger Daten",
+                    "• Löschung (Recht auf Vergessenwerden), soweit gesetzliche Pflichten nicht entgegenstehen",
+                    "• Einschränkung der Verarbeitung",
+                    "• Widerspruch gegen die Verarbeitung",
+                    "• Datenübertragbarkeit",
+                    "• Widerruf erteilter Einwilligungen",
+                    "Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:",
+                    "SIRA Real Estate – office@sira-immobilien.at",
+                    "Wenn Sie der Meinung sind, dass die Verarbeitung Ihrer Daten rechtswidrig erfolgt, können Sie sich an die Österreichische Datenschutzbehörde wenden."
+                ]
+            },
+            {
+                "heading": "Haftung und Nutzung",
+                "paragraphs": [
+                    "Die Informationen in dieser Datenschutzerklärung werden nach bestem Wissen bereitgestellt. SIRA Real Estate übernimmt keine Gewähr für die Vollständigkeit, Aktualität oder Richtigkeit.",
+                    "Die Nutzung erfolgt auf eigene Verantwortung."
+                ]
+            },
+            {
+                "heading": "Änderungen der Datenschutzerklärung",
+                "paragraphs": [
+                    "Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie an geänderte gesetzliche Vorgaben oder Änderungen unserer Datenverarbeitungsprozesse anzupassen.",
+                    "Stand: 01.10.2025"
+                ]
+            }
+        ]
+    }
+}

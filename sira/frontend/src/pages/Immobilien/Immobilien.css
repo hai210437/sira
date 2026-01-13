@@ -1,0 +1,351 @@
+/*
+.immobilien {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10rem;
+    padding: 2rem;
+    margin-left: 8vw;
+    margin-right: 8vw;
+}
+
+.immobilienblock {
+    position: relative;
+    flex: 1 1 calc(20% - 1.5rem);
+    max-width: calc(20% - 1.5rem);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.immobilienblock:hover {
+    transform: translateY(-5px);
+}
+
+.immobilien-bild-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.immobilien-bild {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.6s ease, opacity 0.8s ease;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+}
+
+.immobilien-bild.eins {
+    opacity: 1;
+    z-index: 1;
+}
+
+.immobilien-bild.zwei {
+    opacity: 0;
+    z-index: 2;
+    filter: brightness(60%);
+}
+
+.immobilien-bild-wrapper:hover .immobilien-bild.eins {
+    opacity: 0;
+    transform: scale(1.08);
+}
+
+.immobilien-bild-wrapper:hover .immobilien-bild.zwei {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+.immo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 3;
+}
+
+.immo-overlay h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.immo-overlay h4 {
+    margin: 0.3rem 0 0;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.immobilien-bild-wrapper:hover .immo-overlay {
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .immobilienblock {
+        flex: 1 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 600px) {
+    .immobilienblock {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+*/
+.suchformular-immobilien {
+    margin: 4vh 10vw 2vh 10vw;
+    padding: 2vh 3vw;
+    border: 0.2vh solid var(--basic-blue);
+    display: grid;
+    grid-template-columns: auto 1fr 1fr auto 1fr auto 1fr 1fr auto;
+    gap: 1.5vh 1vw;
+    align-items: center;
+    background: white;
+}
+
+/* Überschriften im Formular */
+.suchformular-immobilien h4 {
+    margin: 0;
+    color: var(--basic-blue);
+    font-size: clamp(14px, 1vw, 20px);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Inputs & Select */
+.suchformular-immobilien input,
+.suchformular-immobilien select {
+    padding: 0.6rem 0.8rem;
+    border: 2px solid var(--basic-blue);
+    border-radius: 6px;
+    font-size: clamp(13px, 0.9vw, 18px);
+    outline: none;
+    color: var(--basic-blue);
+    background: white;
+    width: 100%;
+}
+
+.suchformular-immobilien input:focus,
+.suchformular-immobilien select:focus {
+    box-shadow: 0 0 0 2px rgba(0, 60, 120, 0.15);
+}
+
+/* Button */
+.suchformular-immobilien button {
+    padding: 0.7rem 1.4rem;
+    background: var(--basic-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: clamp(14px, 1vw, 18px);
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.suchformular-immobilien button:hover {
+    background: #003b8a;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .suchformular-immobilien {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .suchformular-immobilien h4 {
+        grid-column: span 2;
+    }
+
+    .suchformular-immobilien button {
+        grid-column: span 2;
+        justify-self: center;
+        width: 60%;
+    }
+}
+
+@media (max-width: 600px) {
+    .suchformular-immobilien {
+        margin: 3vh 5vw;
+        padding: 2vh;
+        grid-template-columns: 1fr;
+    }
+
+    .suchformular-immobilien h4,
+    .suchformular-immobilien button {
+        grid-column: span 1;
+        width: 100%;
+    }
+}
+
+.immobilien-list{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
+    gap: 5vh;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.immobilienblock{
+    border: 0.2vh solid var(--basic-blue);
+    padding: 2vh;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.immo-bild-links {
+    position: relative;
+    width: 35%;
+    aspect-ratio: 16 / 9;  
+    cursor: pointer;
+    height: 30vh;
+    
+}
+
+.erstes-bild,
+.zweites-bild {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.7s ease;
+}
+
+.erstes-bild {
+    opacity: 1;
+}
+
+.zweites-bild {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.immo-bild-links.one:hover .erstes-bild {
+    opacity: 0;
+}
+
+.immo-bild-links:hover .zweites-bild {
+    opacity: 1;
+}
+
+.immo-titel {
+    color: var(--basic-blue);
+    margin-bottom: 1vh;
+    font-size: clamp(20px, 1.5vw, 40px);
+}
+
+.immo-details-table {
+    width: 100%;
+    object-fit: contain;
+    border-collapse: collapse;
+    margin-top: 2vh;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.immo-details-table thead {
+    background: var(--basic-blue);
+    color: white;
+    
+}
+
+.immo-details-table th {
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: clamp(10px, 1.2vw, 25px);
+    letter-spacing: 0.5px;
+}
+
+.immo-details-table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 10px solid #e0e0e0;
+    font-size: clamp(10px, 1vw, 25px);
+    color: var(--basic-blue);
+}
+
+.immo-details-table tbody tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+
+.immo-details-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .immo-details-table th,
+    .immo-details-table td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 1200px){
+    .immobilienblock{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .immo-bild-links {
+        width: 70%;
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+}
+
+.pagination button {
+    background: white;
+    border: 2px solid var(--basic-blue);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: var(--basic-blue);
+    transition: 0.3s ease;
+    border-radius: 6px;
+}
+
+.pagination button:hover {
+    background: var(--basic-blue);
+    color: white;
+}
+
+.pagination button.active {
+    background: var(--basic-blue);
+    color: white;
+    font-weight: bold;
+}
+
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
