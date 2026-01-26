@@ -80,7 +80,7 @@ const NavBar: React.FC<NavBarProps> = ({ isLandingpage }) => {
                 backdropFilter: `blur(${opacity * 10}px)`, // optional: weicher Übergang
                 transition: "background-color 0.3s ease-out",
             }}>
-                <img src={logo} className="logo-links-oben" onClick={() => navigate("/")}>
+                <img src={logo} alt="SIRA Group Logo" className="logo-links-oben" onClick={() => navigate("/")}>
                 </img>
                 <div className="menu-items">
                     {navbaritems.map((item, index) => {
@@ -105,7 +105,7 @@ const NavBar: React.FC<NavBarProps> = ({ isLandingpage }) => {
                 </div>
             </div>
             <div className="overlay-rectangle">
-                <img src={logoanimation} className="logoanimation"></img>
+                <img src={logoanimation} alt="SIRA Group Logo Animation" className="logoanimation"></img>
             </div>
         </>
     );

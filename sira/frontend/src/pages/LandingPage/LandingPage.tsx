@@ -29,7 +29,7 @@ const LandingPage: React.FC = () => {
             </Helmet>
             <NavBar isLandingpage={true} ></NavBar>
             <div className="bild-hinter-slogan-landing">
-                <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} rel="preload"/>
+                <img src={vienna_breit} alt="SIRA Group - Immobilien in Wien" style={{ width: "100%", height: "25vh", objectFit: "cover" }} rel="preload"/>
                 <h1 className="slogan-landing" style={{ width: "50vw" }}> {t("slogan")}
                 </h1>
             </div>
@@ -47,11 +47,11 @@ const LandingPage: React.FC = () => {
                         {t("landingtext1.1")}
                     </p>
                 </div>
-                <img src={landing_2} rel="preload"/>
+                <img src={landing_2} alt="SIRA Group Team - Professionelle Immobilienberatung" rel="preload"/>
             </div>
 
             <div className="text-plus-bild-landing">
-                <img src={landing_3} style={{ width: "60vw", height: "45vh", objectFit: "cover" }} rel="preload"/>
+                <img src={landing_3} alt="Moderne Immobilienprojekte Wien" style={{ width: "60vw", height: "45vh", objectFit: "cover" }} rel="preload"/>
                 <div>
                     <h2>
                         {t("landingheader2")}
@@ -71,19 +71,19 @@ const LandingPage: React.FC = () => {
             <div className="leistungen-landing">
                 <Link to="/real-estate" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <div className="bild-hinter-leistung-landing">
-                        <img src={real_estate_logo} rel="preload"/>
+                        <img src={real_estate_logo} alt="Real Estate - Immobilienverkauf und Vermietung" rel="preload"/>
 
                     </div>
                 </Link>
                 <Link to="/finance" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <div className="bild-hinter-leistung-landing">
-                        <img src={finance_logo} rel="preload"/>
+                        <img src={finance_logo} alt="Finance - Immobilienfinanzierung und Beratung" rel="preload"/>
 
                     </div>
                 </Link>
                 <Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <div className="bild-hinter-leistung-landing">
-                        <img src={services_logo} rel="preload"/>
+                        <img src={services_logo} alt="Services - Hausverwaltung und Immobilien-Services" rel="preload"/>
                     </div>
                 </Link>
             </div>
