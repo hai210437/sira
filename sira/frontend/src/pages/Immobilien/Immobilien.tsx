@@ -95,6 +95,7 @@ const Immobilien: React.FC = () => {
     function goToImmoDetails(id: any) {
         redirect("/immobilien/" + id)
     }
+    console.log(immobilien);
 
 
     return <>

@@ -39,7 +39,7 @@ const Kontakt: React.FC = () => {
                     <h2>{t("erreichbar")}</h2>
                     <p>
                         +43 660 2332 003 <br />
-                        office@sira.at
+                        office@sira-group.at
                     </p>
                 </div>
             </div>

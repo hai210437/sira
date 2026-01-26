@@ -19,6 +19,7 @@ const Impressum: React.FC = () => {
     }, [location, i18n]);
 
 
+    
     return <>
         <Helmet>
             <title>Impressum | SIRA Group</title>

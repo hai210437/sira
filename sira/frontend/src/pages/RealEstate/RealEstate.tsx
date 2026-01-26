@@ -82,6 +82,8 @@ const RealEstate: React.FC = () => {
         return () => clearInterval(interval);
     }, [bewertungen.length]);
 
+    
+
     return (
         <>
             <Helmet>
