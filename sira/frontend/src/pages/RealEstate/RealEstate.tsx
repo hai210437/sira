@@ -8,8 +8,9 @@ import gsap from "gsap";
 import shuffle from "lodash.shuffle"
 import Kontaktformular from "../../components/Kontaktformular/Kontaktformular";
 import Helmet from "react-helmet";
-import { Link, redirect, useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { getImmobilien } from "../../services/api";
+import type { Immobilie } from "../../services/api";
 
 type Bewertung = {
     text: string,
@@ -19,10 +20,10 @@ type Bewertung = {
 const RealEstate: React.FC = () => {
     const navigate = useNavigate();
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     let bewertungen: Bewertung[] = Object.values(t("bewertungen", { returnObjects: true }));
     bewertungen = shuffle(bewertungen);
-    const [immobilien, setImmobilien] = useState<any[]>([]);
+    const [immobilien, setImmobilien] = useState<Immobilie[]>([]);
 
     const [index, setIndex] = useState(0);
     const blockRef = useRef<HTMLDivElement | null>(null);
@@ -34,15 +35,13 @@ const RealEstate: React.FC = () => {
         t("bewertung")
     ];
 
-
-
-    async function getImmobilien() {
+    async function loadImmobilien() {
         try {
-            const lang = i18n.language || "de";
-            const response = await fetch(`https://api.sira-group.at/justimmo?lang=${lang}`);
-            if (!response.ok) throw new Error(`Response status: ${response.status}`);
-            const data = await response.json();
-            setImmobilien(data.slice(0, 5));
+            const response = await getImmobilien({
+                limit: 5,
+                sort: 'preis_desc' // Die 5 teuersten Immobilien
+            });
+            setImmobilien(response.data);
         } catch (err) {
             console.error("Failed to load immobilien:", err);
             setImmobilien([]);
@@ -50,13 +49,8 @@ const RealEstate: React.FC = () => {
     }
 
     useEffect(() => {
-        getImmobilien();
+        loadImmobilien();
     }, []);
-
-
-    function goToImmoDetails(id: any) {
-        redirect("/immobilien/" + id)
-    }
 
 
     useEffect(() => {
@@ -117,8 +111,8 @@ const RealEstate: React.FC = () => {
                         </div>
                     </div>
                     <div className="estateleistungen">
-                        {estateleistungen.map((leistung) => (
-                            <div className="estateleistung">
+                        {estateleistungen.map((leistung, idx) => (
+                            <div className="estateleistung" key={idx}>
                                 <h2>
                                     {leistung}
                                 </h2>
@@ -128,61 +122,61 @@ const RealEstate: React.FC = () => {
                 </div>
                 <h2 className="bewertungen-ue"> {t("immobilien-ue")}</h2>
                 <div className="immobilien-list">
-                    {immobilien.map((immo, idx) => (
-                        <Link to={"/immobilien/" + immo.id} style={{ "textDecoration": "none" }}>
-                            <div className="immobilienblock" key={idx} onClick={() => goToImmoDetails(idx)}>
-                                <div className={`immo-bild-links ${immo.zweites_bild ? "has-two" : "one"}`}>
-                                    <img src={immo.erstes_bild} className="erstes-bild" />
-                                    {immo.zweites_bild && immo.zweites_bild.trim() !== "" && (
-                                        <img src={immo.zweites_bild} className="zweites-bild" />
-                                    )}
-                                </div>
+                    {immobilien.map((immo) => {
+                        const preis = immo.vermarktungsart === 'KAUF' ? immo.kaufpreis : immo.nettokaltmiete;
+                        const preisLabel = immo.vermarktungsart === 'KAUF' ? 'Kaufpreis' : 'Miete';
 
-                                <div className="beschreibung rechts">
-                                    <h2 className="immo-titel">{immo.titel}</h2>
-                                    <h3>{immo.plz} {immo.ort}</h3>
+                        return (
+                            <Link to={`/immobilien/${immo.id}`} key={immo.id} style={{ textDecoration: "none" }}>
+                                <div className="immobilienblock">
+                                    <div className="immo-bild-links one">
+                                        {immo.titelbild_url && (
+                                            <img
+                                                src={immo.titelbild_url}
+                                                alt={immo.objekttitel || 'Immobilie'}
+                                                className="erstes-bild"
+                                            />
+                                        )}
+                                    </div>
 
-                                    <table className="immo-details-table">
-                                        <thead>
-                                            <tr>
-                                                {immo.anzahl_zimmer != null && (
-                                                    <th>Zimmer</th>
-                                                )}
-                                                {immo.nutzflaeche != null && immo.wohnflaeche == null && (
-                                                    <th>Nutzfläche</th>
-                                                )}
-                                                {immo.wohnflaeche != null && (
-                                                    <th>Wohnfläche</th>
-                                                )}
-                                                <th>Kaufpreis</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                {immo.anzahl_zimmer != null && (
-                                                    <td>{immo.anzahl_zimmer}</td>
-                                                )}
-                                                {immo.nutzflaeche != null && immo.wohnflaeche == null && (
-                                                    <td>{immo.nutzflaeche}m²</td>
-                                                )}
-                                                {immo.wohnflaeche != null && (
-                                                    <td>{immo.wohnflaeche}m²</td>
-                                                )}
-                                                {immo.preis > 100000 ? (
+                                    <div className="beschreibung rechts">
+                                        <h2 className="immo-titel">{immo.objekttitel || 'Ohne Titel'}</h2>
+                                        <h3>{immo.plz} {immo.ort}</h3>
+
+                                        <table className="immo-details-table">
+                                            <thead>
+                                                <tr>
+                                                    {immo.anzahl_zimmer != null && <th>Zimmer</th>}
+                                                    {immo.wohnflaeche != null && <th>Wohnfläche</th>}
+                                                    <th>{preisLabel}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    {immo.anzahl_zimmer != null && (
+                                                        <td>{Math.floor(immo.anzahl_zimmer)}</td>
+                                                    )}
+                                                    {immo.wohnflaeche != null && (
+                                                        <td>{immo.wohnflaeche} m²</td>
+                                                    )}
                                                     <td>
-                                                        {new Intl.NumberFormat('de-AT', { style: 'currency', currency: 'EUR' }).format(immo.preis)}
+                                                        {preis && preis > 0
+                                                            ? new Intl.NumberFormat('de-AT', {
+                                                                  style: 'currency',
+                                                                  currency: 'EUR',
+                                                              }).format(preis)
+                                                            : 'Preis auf Anfrage'}
                                                     </td>
-                                                ) : (
-                                                    <td>Preis auf Anfrage</td>
-                                                )}
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    ))}
-                    <button className="more-immo-button" onClick={() => navigate("/immobilien")}>{t("mehr-immobilien-button")}
+                            </Link>
+                        );
+                    })}
+                    <button className="more-immo-button" onClick={() => navigate("/immobilien")}>
+                        {t("mehr-immobilien-button")}
                     </button>
                 </div>
             </div>
