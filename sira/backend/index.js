@@ -99,14 +99,14 @@ app.get("/justimmo", async (req, res) => {
 // ===== Microsoft Graph API - Contact Form Endpoint =====
 app.post("/api/contact", async (req, res) => {
   try {
-    const { vorname, nachname, email, telefonnr, nachricht, date } = req.body;
+    const { vorname, nachname, email, telefonnr, nachricht, date, sourceUrl } = req.body;
 
     // Validierung
     if (!vorname || !nachname || !email || !nachricht) {
       return res.status(400).json({ error: "Pflichtfelder fehlen" });
     }
 
-    console.log("📧 Verarbeite Kontaktformular:", { vorname, nachname, email });
+    console.log("📧 Verarbeite Kontaktformular:", { vorname, nachname, email, sourceUrl });
 
     // Microsoft Graph Client Setup mit Client Credentials Flow
     const tenantId = process.env.MICROSOFT_TENANT_ID;
@@ -148,7 +148,7 @@ app.post("/api/contact", async (req, res) => {
       },
     });
 
-    // E-Mail erstellen (HTML mit schönem Design)
+    // E-Mail erstellen (HTML mit modernem SIRA Design)
     const emailBody = `
 <!DOCTYPE html>
 <html lang="de">
@@ -156,144 +156,235 @@ app.post("/api/contact", async (req, res) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&display=swap');
+
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Amiko', 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e6e6e6 100%);
         }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            border-radius: 8px;
+        .email-wrapper {
+            max-width: 650px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0, 3, 36, 0.15);
         }
         .header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            padding: 30px;
+            background: linear-gradient(135deg, #000324 0%, #003b8a 100%);
+            padding: 40px 30px;
             text-align: center;
-            color: white;
+            position: relative;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #003b8a;
         }
         .header h1 {
             margin: 0;
-            font-size: 24px;
-            font-weight: 600;
-        }
-        .content {
-            padding: 30px;
-        }
-        .info-card {
-            background-color: #f8fafc;
-            border-left: 4px solid #3b82f6;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        .info-row {
-            display: flex;
-            margin: 12px 0;
-            align-items: flex-start;
-        }
-        .info-label {
-            font-weight: 600;
-            color: #1e3a8a;
-            min-width: 100px;
-            margin-right: 10px;
-        }
-        .info-value {
-            color: #334155;
-            flex: 1;
-        }
-        .message-box {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 6px;
-            line-height: 1.6;
-            color: #334155;
-        }
-        .message-label {
-            font-weight: 600;
-            color: #1e3a8a;
-            margin-bottom: 10px;
-            font-size: 14px;
-            text-transform: uppercase;
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
             letter-spacing: 0.5px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+        ${sourceUrl ? `
+        .property-banner {
+            background: linear-gradient(90deg, #003b8a 0%, #0055bb 100%);
+            padding: 20px 30px;
+            margin: 30px 0 0 0;
+            border-bottom: 3px solid #000324;
+        }
+        .property-banner h2 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .property-link {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .property-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        ` : ''}
+        .content {
+            padding: 50px 30px 30px 30px;
+        }
+        .intro-text {
+            color: #000324;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 2px solid #e6e6e6;
+            border-left: 6px solid #003b8a;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .contact-row {
+            display: flex;
+            margin: 16px 0;
+            align-items: baseline;
+        }
+        .contact-label {
+            font-weight: 700;
+            color: #000324;
+            min-width: 120px;
+            font-size: 15px;
+        }
+        .contact-value {
+            color: #333333;
+            font-size: 15px;
+            flex: 1;
+            line-height: 1.5;
+        }
+        .contact-value a {
+            color: #003b8a;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .contact-value a:hover {
+            border-bottom-color: #003b8a;
+        }
+        .message-section {
+            background: #ffffff;
+            border: 2px solid #e6e6e6;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .message-heading {
+            font-weight: 700;
+            color: #000324;
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #003b8a;
+        }
+        .message-text {
+            color: #333333;
+            line-height: 1.8;
+            font-size: 15px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, #000324 0%, #003b8a 100%);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .cta-box p {
+            margin: 0;
+            color: #ffffff;
+            font-size: 14px;
+            line-height: 1.6;
         }
         .footer {
-            background-color: #f8fafc;
-            padding: 20px;
+            background: #f8f9fa;
+            padding: 25px 30px;
             text-align: center;
-            color: #64748b;
-            font-size: 12px;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid #e6e6e6;
+        }
+        .footer p {
+            margin: 5px 0;
+            color: #666666;
+            font-size: 13px;
+            line-height: 1.5;
         }
         .footer a {
-            color: #3b82f6;
+            color: #003b8a;
             text-decoration: none;
-        }
-        .badge {
-            display: inline-block;
-            background-color: #3b82f6;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 11px;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="email-wrapper">
         <div class="header">
-            <h1>Neue Kontaktanfrage</h1>
-            <div class="badge">Website Kontaktformular</div>
+            <h1>SIRA Anfrage</h1>
+            <p>Neue Kontaktanfrage von sira-group.at</p>
         </div>
 
+        ${sourceUrl ? `
+        <div class="property-banner">
+            <h2>Anfrage bezüglich Immobilie:</h2>
+            <a href="${sourceUrl}" class="property-link" target="_blank">${sourceUrl}</a>
+        </div>
+        ` : ''}
+
         <div class="content">
-            <p style="color: #334155; font-size: 16px; margin-bottom: 20px;">
-                Sie haben eine neue Anfrage über das Kontaktformular auf <strong>sira-group.at</strong> erhalten:
-            </p>
+            <div class="intro-text">
+                <strong>Sie haben eine neue Anfrage über das Kontaktformular erhalten.</strong>
+            </div>
 
-            <div class="info-card">
-                <div class="info-row">
-                    <div class="info-label">Name:</div>
-                    <div class="info-value"><strong>${vorname} ${nachname}</strong></div>
+            <div class="contact-card">
+                <div class="contact-row">
+                    <div class="contact-label">Name:</div>
+                    <div class="contact-value"><strong>${vorname} ${nachname}</strong></div>
                 </div>
-                <div class="info-row">
-                    <div class="info-label">E-Mail:</div>
-                    <div class="info-value"><a href="mailto:${email}" style="color: #3b82f6; text-decoration: none;">${email}</a></div>
+                <div class="contact-row">
+                    <div class="contact-label">E-Mail:</div>
+                    <div class="contact-value"><a href="mailto:${email}">${email}</a></div>
                 </div>
-                <div class="info-row">
-                    <div class="info-label">Telefon:</div>
-                    <div class="info-value">${telefonnr || "Nicht angegeben"}</div>
+                <div class="contact-row">
+                    <div class="contact-label">Telefon:</div>
+                    <div class="contact-value">${telefonnr || "Nicht angegeben"}</div>
                 </div>
-                <div class="info-row">
-                    <div class="info-label">Datum:</div>
-                    <div class="info-value">${date || new Date().toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                <div class="contact-row">
+                    <div class="contact-label">Datum:</div>
+                    <div class="contact-value">${date || new Date().toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
                 </div>
             </div>
 
-            <div class="message-box">
-                <div class="message-label">Nachricht</div>
-                <div style="white-space: pre-wrap;">${nachricht}</div>
+            <div class="message-section">
+                <h3 class="message-heading">Nachricht</h3>
+                <div class="message-text">${nachricht}</div>
             </div>
 
-            <p style="color: #64748b; font-size: 14px; margin-top: 30px;">
-                <strong>Tipp:</strong> Sie können direkt auf diese E-Mail antworten, um ${vorname} zu kontaktieren.
-            </p>
+            <div class="cta-box">
+                <p><strong>Schnell antworten:</strong> Sie können direkt auf diese E-Mail antworten, um ${vorname} zu kontaktieren.</p>
+            </div>
         </div>
 
         <div class="footer">
-            <p style="margin: 5px 0;">
-                Diese E-Mail wurde automatisch generiert.
-            </p>
+            <p>SIRA Real Estate GmbH | <a href="https://www.sira-group.at" target="_blank">www.sira-group.at</a></p>
+            <p>Diese E-Mail wurde automatisch vom SIRA Kontaktformular generiert.</p>
         </div>
     </div>
 </body>

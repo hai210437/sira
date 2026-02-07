@@ -26,6 +26,7 @@ const Kontaktformular: React.FC<KontaktformularProps> = ({ isKontaktSeite }) => 
                 telefonnr: formData.get("telefonnr"),
                 nachricht: formData.get("nachricht"),
                 date: formData.get("date"),
+                sourceUrl: window.location.href, // Aktuelle URL der Seite
             };
 
             // Backend API aufrufen (wird über Docker Networking automatisch geroutet)
