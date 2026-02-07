@@ -148,245 +148,140 @@ app.post("/api/contact", async (req, res) => {
       },
     });
 
-    // E-Mail erstellen (HTML mit modernem SIRA Design)
+    // E-Mail erstellen (Outlook-kompatibles table-basiertes Layout)
     const emailBody = `
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&display=swap');
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Amiko', 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e6e6e6 100%);
-        }
-        .email-wrapper {
-            max-width: 650px;
-            margin: 40px auto;
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 3, 36, 0.15);
-        }
-        .header {
-            background: linear-gradient(135deg, #000324 0%, #003b8a 100%);
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-        }
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 20px solid #003b8a;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 0.5px;
-        }
-        .header p {
-            margin: 10px 0 0 0;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 400;
-        }
-        ${sourceUrl ? `
-        .property-banner {
-            background: linear-gradient(90deg, #003b8a 0%, #0055bb 100%);
-            padding: 20px 30px;
-            margin: 30px 0 0 0;
-            border-bottom: 3px solid #000324;
-        }
-        .property-banner h2 {
-            margin: 0 0 8px 0;
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.85);
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .property-link {
-            display: inline-block;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        .property-link:hover {
-            background: rgba(255, 255, 255, 0.25);
-        }
-        ` : ''}
-        .content {
-            padding: 50px 30px 30px 30px;
-        }
-        .intro-text {
-            color: #000324;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        .contact-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            border: 2px solid #e6e6e6;
-            border-left: 6px solid #003b8a;
-            padding: 25px;
-            margin: 25px 0;
-            border-radius: 8px;
-        }
-        .contact-row {
-            display: flex;
-            margin: 16px 0;
-            align-items: baseline;
-        }
-        .contact-label {
-            font-weight: 700;
-            color: #000324;
-            min-width: 120px;
-            font-size: 15px;
-        }
-        .contact-value {
-            color: #333333;
-            font-size: 15px;
-            flex: 1;
-            line-height: 1.5;
-        }
-        .contact-value a {
-            color: #003b8a;
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-        .contact-value a:hover {
-            border-bottom-color: #003b8a;
-        }
-        .message-section {
-            background: #ffffff;
-            border: 2px solid #e6e6e6;
-            padding: 25px;
-            margin: 25px 0;
-            border-radius: 8px;
-        }
-        .message-heading {
-            font-weight: 700;
-            color: #000324;
-            margin: 0 0 15px 0;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #003b8a;
-        }
-        .message-text {
-            color: #333333;
-            line-height: 1.8;
-            font-size: 15px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        .cta-box {
-            background: linear-gradient(135deg, #000324 0%, #003b8a 100%);
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .cta-box p {
-            margin: 0;
-            color: #ffffff;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .footer {
-            background: #f8f9fa;
-            padding: 25px 30px;
-            text-align: center;
-            border-top: 1px solid #e6e6e6;
-        }
-        .footer p {
-            margin: 5px 0;
-            color: #666666;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-        .footer a {
-            color: #003b8a;
-            text-decoration: none;
-            font-weight: 600;
-        }
-    </style>
 </head>
-<body>
-    <div class="email-wrapper">
-        <div class="header">
-            <h1>SIRA Anfrage</h1>
-            <p>Neue Kontaktanfrage von sira-group.at</p>
-        </div>
+<body style="margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background-color: #f5f5f5;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #f5f5f5;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <table width="600" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff; max-width: 600px;">
 
-        ${sourceUrl ? `
-        <div class="property-banner">
-            <h2>Anfrage bezüglich Immobilie:</h2>
-            <a href="${sourceUrl}" class="property-link" target="_blank">${sourceUrl}</a>
-        </div>
-        ` : ''}
+                    <tr>
+                        <td style="background-color: #000324; padding: 40px 30px; text-align: center;">
+                            <h1 style="margin: 0; font-size: 32px; font-weight: bold; color: #ffffff; font-family: Arial, Helvetica, sans-serif;">
+                                SIRA ANFRAGE
+                            </h1>
+                            <p style="margin: 10px 0 0 0; font-size: 15px; color: #ffffff; font-family: Arial, Helvetica, sans-serif;">
+                                Neue Kontaktanfrage von sira-group.at
+                            </p>
+                        </td>
+                    </tr>
 
-        <div class="content">
-            <div class="intro-text">
-                <strong>Sie haben eine neue Anfrage über das Kontaktformular erhalten.</strong>
-            </div>
+                    ${sourceUrl ? `
+                    <tr>
+                        <td style="background-color: #000324; padding: 25px 30px; border-bottom: 4px solid #000324;">
+                            <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffffff; font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">
+                                Anfrage bezüglich Immobilie:
+                            </p>
+                            <a href="${sourceUrl}" style="display: inline-block; color: #ffffff; text-decoration: none; font-size: 14px; font-family: Arial, Helvetica, sans-serif; padding: 10px 18px; background-color: rgba(255, 255, 255, 0.2); border: 2px solid #ffffff;">
+                                ${sourceUrl}
+                            </a>
+                        </td>
+                    </tr>
+                    ` : ''}
 
-            <div class="contact-card">
-                <div class="contact-row">
-                    <div class="contact-label">Name:</div>
-                    <div class="contact-value"><strong>${vorname} ${nachname}</strong></div>
-                </div>
-                <div class="contact-row">
-                    <div class="contact-label">E-Mail:</div>
-                    <div class="contact-value"><a href="mailto:${email}">${email}</a></div>
-                </div>
-                <div class="contact-row">
-                    <div class="contact-label">Telefon:</div>
-                    <div class="contact-value">${telefonnr || "Nicht angegeben"}</div>
-                </div>
-                <div class="contact-row">
-                    <div class="contact-label">Datum:</div>
-                    <div class="contact-value">${date || new Date().toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
-                </div>
-            </div>
+                    <tr>
+                        <td style="padding: 40px 30px;">
 
-            <div class="message-section">
-                <h3 class="message-heading">Nachricht</h3>
-                <div class="message-text">${nachricht}</div>
-            </div>
+                            <p style="margin: 0 0 30px 0; font-size: 16px; color: #000324; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                                <strong>Sie haben eine neue Anfrage über das Kontaktformular erhalten.</strong>
+                            </p>
 
-            <div class="cta-box">
-                <p><strong>Schnell antworten:</strong> Sie können direkt auf diese E-Mail antworten, um ${vorname} zu kontaktieren.</p>
-            </div>
-        </div>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff; border: 2px solid #000324; margin-bottom: 25px;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td width="120" style="padding: 8px 0; font-size: 15px; font-weight: bold; color: #000324; font-family: Arial, Helvetica, sans-serif; vertical-align: top;">
+                                                    Name:
+                                                </td>
+                                                <td style="padding: 8px 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif;">
+                                                    <strong>${vorname} ${nachname}</strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td width="120" style="padding: 8px 0; font-size: 15px; font-weight: bold; color: #000324; font-family: Arial, Helvetica, sans-serif; vertical-align: top;">
+                                                    E-Mail:
+                                                </td>
+                                                <td style="padding: 8px 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif;">
+                                                    <a href="mailto:${email}" style="color: #000324; text-decoration: none; font-weight: bold;">${email}</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td width="120" style="padding: 8px 0; font-size: 15px; font-weight: bold; color: #000324; font-family: Arial, Helvetica, sans-serif; vertical-align: top;">
+                                                    Telefon:
+                                                </td>
+                                                <td style="padding: 8px 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif;">
+                                                    ${telefonnr || "Nicht angegeben"}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td width="120" style="padding: 8px 0; font-size: 15px; font-weight: bold; color: #000324; font-family: Arial, Helvetica, sans-serif; vertical-align: top;">
+                                                    Datum:
+                                                </td>
+                                                <td style="padding: 8px 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif;">
+                                                    ${date || new Date().toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
 
-        <div class="footer">
-            <p>SIRA Real Estate GmbH | <a href="https://www.sira-group.at" target="_blank">www.sira-group.at</a></p>
-            <p>Diese E-Mail wurde automatisch vom SIRA Kontaktformular generiert.</p>
-        </div>
-    </div>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 2px solid #e6e6e6; margin-bottom: 25px;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <p style="margin: 0 0 15px 0; font-size: 14px; font-weight: bold; color: #000324; font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: 1px; padding-bottom: 10px; border-bottom: 3px solid #000324;">
+                                            NACHRICHT
+                                        </p>
+                                        <p style="margin: 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif; line-height: 1.8; white-space: pre-wrap;">${nachricht}</p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #000324; margin-bottom: 20px;">
+                                <tr>
+                                    <td style="padding: 20px; text-align: center;">
+                                        <p style="margin: 0; font-size: 14px; color: #ffffff; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                                            <strong>💬 Schnell antworten:</strong> Einfach direkt auf diese E-Mail antworten, um ${vorname} zu kontaktieren.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #ffffff; padding: 25px 30px; text-align: center; border-top: 3px solid #000324;">
+                            <p style="margin: 0 0 8px 0; font-size: 14px; color: #000324; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">
+                                SIRA Real Estate GmbH
+                            </p>
+                            <p style="margin: 0 0 8px 0; font-size: 13px; color: #666666; font-family: Arial, Helvetica, sans-serif;">
+                                <a href="https://www.sira-group.at" target="_blank" style="color: #000324; text-decoration: none; font-weight: bold;">www.sira-group.at</a>
+                            </p>
+                            <p style="margin: 0; font-size: 12px; color: #999999; font-family: Arial, Helvetica, sans-serif;">
+                                Diese E-Mail wurde automatisch vom SIRA Kontaktformular generiert.
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
     `.trim();
