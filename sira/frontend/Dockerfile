@@ -29,8 +29,8 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Wenn dein Build direkt in /dist landet, nimm stattdessen:
 # COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Optional: eigene nginx.conf für sauberes Routing (SPA-Support)
-#COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Eigene nginx.conf für SPA-Support und API-Proxy
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Port 80 (für NPM Reverse Proxy)
 EXPOSE 80

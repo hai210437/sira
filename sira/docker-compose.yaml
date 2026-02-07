@@ -3,21 +3,38 @@ version: "3.9"
 services:
   webapp:
     build:
-      context: .
+      context: ./frontend
       dockerfile: Dockerfile
+      args:
+        VITE_MAP_KEY: ${MAP_KEY}
     container_name: sira-webapp
     expose:
       - "80"
-    environment:
-      - VITE_MAP_KEY=${MAP_KEY}  # wird aus .env Ã¼bernommen
+    depends_on:
+      - api
+    networks:
+      - sira-network
+
   api:
     build:
-      context: .
-      dockerfile: server/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: sira-api
     expose:
-      - "8080" # extern zugänglich, optional intern nur
+      - "67"
     environment:
+      - PORT=67
       - JUSTIMMO_USER=${JUSTIMMO_USER}
       - JUSTIMMO_PASSWORD=${JUSTIMMO_PASSWORD}
+      # Microsoft 365 / Graph API Credentials
+      - MICROSOFT_TENANT_ID=${MICROSOFT_TENANT_ID}
+      - MICROSOFT_CLIENT_ID=${MICROSOFT_CLIENT_ID}
+      - MICROSOFT_CLIENT_SECRET=${MICROSOFT_CLIENT_SECRET}
+      - MICROSOFT_SENDER_EMAIL=${MICROSOFT_SENDER_EMAIL}
+      - MICROSOFT_RECIPIENT_EMAIL=${MICROSOFT_RECIPIENT_EMAIL}
+    networks:
+      - sira-network
 
+networks:
+  sira-network:
+    driver: bridge

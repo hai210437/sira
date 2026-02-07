@@ -12,13 +12,7 @@
     "dev:full": "concurrently \"npm run server\" \"npm run dev\""
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.2",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "emailjs": "^4.0.3",
-    "express": "^5.1.0",
-    "fast-xml-parser": "^5.3.0",
     "gsap": "^3.13.0",
     "i18next-browser-languagedetector": "^8.2.0",
     "i18next-http-backend": "^3.0.2",
