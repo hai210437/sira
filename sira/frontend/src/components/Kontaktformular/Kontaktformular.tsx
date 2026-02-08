@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import "./Kontaktformular.css";
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 import StandortKarte from "../map/Map";
 
 interface KontaktformularProps {
@@ -10,51 +9,75 @@ interface KontaktformularProps {
 
 const Kontaktformular: React.FC<KontaktformularProps> = ({ isKontaktSeite }) => {
     const { t } = useTranslation();
-    var today = new Date();
-
+    const today = new Date();
     const form = useRef<HTMLFormElement>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const sendEmail = (e: React.FormEvent) => {
+    const sendEmail = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
-        emailjs
-            .sendForm(
-                "service_w7npolj",
-                "template_5k6dm6d",
-                form.current!,
-                "CjGSFMXAus1AERzfr"
-            )
-            .then(
-                () => {
-                    alert("Nachricht erfolgreich gesendet!");
-                    form.current?.reset();
+        try {
+            const formData = new FormData(form.current!);
+            const data = {
+                vorname: formData.get("vorname"),
+                nachname: formData.get("nachname"),
+                email: formData.get("email"),
+                telefonnr: formData.get("telefonnr"),
+                nachricht: formData.get("nachricht"),
+                date: formData.get("date"),
+                sourceUrl: window.location.href, // Aktuelle URL der Seite
+            };
+
+            // Backend API aufrufen (wird über Docker Networking automatisch geroutet)
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
                 },
-                (error) => alert("Fehler beim Senden: " + error.text)
-            );
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.error || "Fehler beim Senden");
+            }
+
+            const result = await response.json();
+            alert(result.message || "Nachricht erfolgreich gesendet!");
+            form.current?.reset();
+        } catch (error) {
+            console.error("Fehler:", error);
+            alert("Fehler beim Senden: " + (error as Error).message);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
         <>
-            
+
             <div className="kontaktformular">
                 <form className="formular-links" ref={form} onSubmit={sendEmail}>
 
                     <div className="row">
-                        <input type="text" name="vorname" placeholder={t("vorname")} maxLength={30} />
-                        <input type="text" name="nachname" placeholder={t("nachname")} />
+                        <input type="text" name="vorname" placeholder={t("vorname")} maxLength={30} required />
+                        <input type="text" name="nachname" placeholder={t("nachname")} required />
                     </div>
 
                     <div className="row">
-                        <input type="email" name="email" placeholder="E-Mail" maxLength={30} />
+                        <input type="email" name="email" placeholder="E-Mail" maxLength={30} required />
                         <input type="text" name="telefonnr" placeholder={t("telefon")} maxLength={30} />
                         <input type="hidden" name="date" value={today.toLocaleDateString()} />
                     </div>
 
                     <div className="row fullwidth">
-                        <textarea name="nachricht" placeholder={t("nachricht")} />
+                        <textarea name="nachricht" placeholder={t("nachricht")} required />
                     </div>
                     <div className="row fullwidth">
-                        <button className="sendbutton">{t("senden")}</button>
+                        <button className="sendbutton" disabled={isSubmitting}>
+                            {isSubmitting ? "Wird gesendet..." : t("senden")}
+                        </button>
                     </div>
                 </form>
                 {!isKontaktSeite &&
