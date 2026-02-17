@@ -163,6 +163,10 @@ const ImmobilienDetails: React.FC = () => {
                 <meta name="twitter:description" content={metaDescription} />
                 {immobilie.titelbild_url && <meta name="twitter:image" content={immobilie.titelbild_url} />}
 
+                {/* Canonical */}
+                <link rel="canonical" href={`https://sira-group.at/immobilien/${immobilie.id}`} />
+                <meta property="og:site_name" content="SIRA Group" />
+
                 {/* JSON-LD Strukturierte Daten */}
                 <script type="application/ld+json">
                     {JSON.stringify(jsonLd)}
@@ -517,7 +521,10 @@ const ImmobilienDetails: React.FC = () => {
                 </div>
             )}
 
-            <Kontaktformular isKontaktSeite={false} />
+            <Kontaktformular
+                isKontaktSeite={false}
+                immobilienTitel={immobilie.objekttitel || undefined}
+            />
             <Footer />
         </>
     );

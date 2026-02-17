@@ -20,16 +20,23 @@ const Finance: React.FC = () => {
 
     return <>
         <Helmet>
-            <title>Finance | SIRA Group</title>
-            <meta
-                name="description"
-                content="Unsere Finanzleistungen"
-            />
+            <title>Immobilienfinanzierung Wien – SIRA Finance</title>
+            <meta name="description" content="SIRA Finance: Professionelle Immobilienfinanzierung und Beratung in Wien. Kreditvermittlung, Baufinanzierung und individuelle Finanzlösungen für Ihr Immobilienprojekt." />
+            <link rel="canonical" href="https://sira-group.at/finance" />
+            <meta property="og:title" content="Immobilienfinanzierung Wien – SIRA Finance" />
+            <meta property="og:description" content="Professionelle Immobilienfinanzierung und Beratung in Wien. Kreditvermittlung und individuelle Finanzlösungen." />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://sira-group.at/finance" />
+            <meta property="og:image" content="https://sira-group.at/assets/social-preview.jpg" />
+            <meta property="og:site_name" content="SIRA Group" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Immobilienfinanzierung Wien – SIRA Finance" />
+            <meta name="twitter:description" content="Professionelle Immobilienfinanzierung und Beratung in Wien." />
         </Helmet>
         <NavBar isLandingpage={false}></NavBar>
         <div className="real-estate">
             <div className="bild-hinter-slogan">
-                <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} rel="preload"/>
+                <img src={vienna_breit} alt="Wien Panorama – SIRA Finance Immobilienfinanzierung" style={{ width: "100%", height: "25vh", objectFit: "cover" }} />
                 <h1 className="header"> {t("SIRA FINANCE")}
                 </h1>
             </div>
@@ -43,7 +50,7 @@ const Finance: React.FC = () => {
                         {t("financetext")}
                     </p>
                 </div>
-                <img src={finance_1} style={{ width: "50vw", height: "46vh", objectFit: "cover" }} rel="preload"/>
+                <img src={finance_1} alt="Immobilienfinanzierung und Beratung – SIRA Finance" style={{ width: "50vw", height: "46vh", objectFit: "cover" }} />
             </div>
             <div className="finanzleistungen">
                 {finanzleistungen.map((leistung) => (

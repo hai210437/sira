@@ -22,11 +22,10 @@ const Impressum: React.FC = () => {
     
     return <>
         <Helmet>
-            <title>Impressum | SIRA Group</title>
-            <meta
-                name="description"
-                content="Das Impressum"
-            />
+            <title>Impressum | SIRA Group – Immobilien Wien</title>
+            <meta name="description" content="Impressum der SIRA Group GmbH. Firmensitz: Kärntnerstraße 21-23/2/10, 1010 Wien. Angaben gemäß § 5 ECG und Offenlegung gemäß § 25 MedienG." />
+            <link rel="canonical" href="https://sira-group.at/impressum" />
+            <meta name="robots" content="noindex, follow" />
         </Helmet>
         <div className="impressum-container">
 

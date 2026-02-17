@@ -5,9 +5,10 @@ import StandortKarte from "../map/Map";
 
 interface KontaktformularProps {
     isKontaktSeite: boolean;
+    immobilienTitel?: string;
 }
 
-const Kontaktformular: React.FC<KontaktformularProps> = ({ isKontaktSeite }) => {
+const Kontaktformular: React.FC<KontaktformularProps> = ({ isKontaktSeite, immobilienTitel }) => {
     const { t } = useTranslation();
     const today = new Date();
     const form = useRef<HTMLFormElement>(null);
@@ -26,7 +27,8 @@ const Kontaktformular: React.FC<KontaktformularProps> = ({ isKontaktSeite }) => 
                 telefonnr: formData.get("telefonnr"),
                 nachricht: formData.get("nachricht"),
                 date: formData.get("date"),
-                sourceUrl: window.location.href, // Aktuelle URL der Seite
+                sourceUrl: window.location.href,
+                immobilienTitel: immobilienTitel || undefined,
             };
 
             // Backend API aufrufen (wird über Docker Networking automatisch geroutet)

@@ -10,15 +10,22 @@ const Kontakt: React.FC = () => {
     const { t } = useTranslation();
     return <>
         <Helmet>
-            <title>Kontakt | SIRA Group</title>
-            <meta
-                name="description"
-                content="Kontaktieren Sie uns!"
-            />
+            <title>Kontakt – Immobilienberatung Wien | SIRA Group</title>
+            <meta name="description" content="Kontaktieren Sie die SIRA Group in Wien: Kärntnerstraße 21-23, 1010 Wien. Telefon: +43 660 2332 003. Persönliche Beratung zu Immobilien, Finanzierung und Services." />
+            <link rel="canonical" href="https://sira-group.at/kontakt" />
+            <meta property="og:title" content="Kontakt – Immobilienberatung Wien | SIRA Group" />
+            <meta property="og:description" content="Kontaktieren Sie die SIRA Group: Persönliche Beratung zu Immobilien in Wien." />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://sira-group.at/kontakt" />
+            <meta property="og:image" content="https://sira-group.at/assets/social-preview.jpg" />
+            <meta property="og:site_name" content="SIRA Group" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Kontakt – Immobilienberatung Wien | SIRA Group" />
+            <meta name="twitter:description" content="Kontaktieren Sie die SIRA Group: Persönliche Beratung zu Immobilien in Wien." />
         </Helmet>
         <NavBar isLandingpage={false}></NavBar>
         <div className="kontakt">
-            <h2 className="kontaktheader">{t("kontaktheader")}</h2>
+            <h1 className="kontaktheader">{t("kontaktheader")}</h1>
             <p className="kontakttext">
                 {t("kontakttext")}
             </p>

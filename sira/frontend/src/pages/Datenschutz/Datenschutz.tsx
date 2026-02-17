@@ -19,11 +19,10 @@ const Datenschutz: React.FC = () => {
 
     return <>
         <Helmet>
-            <title>Datenschutz | SIRA Group</title>
-            <meta
-                name="description"
-                content="Datenschutzinformationen"
-            />
+            <title>Datenschutzerklärung | SIRA Group – Immobilien Wien</title>
+            <meta name="description" content="Datenschutzerklärung der SIRA Group GmbH. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO auf sira-group.at." />
+            <link rel="canonical" href="https://sira-group.at/datenschutz" />
+            <meta name="robots" content="noindex, follow" />
         </Helmet>
         <div className="datenschutz-container">
 
