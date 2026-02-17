@@ -28,16 +28,23 @@ const Services: React.FC = () => {
 
     return <>
         <Helmet>
-            <title>Services | SIRA Group</title>
-            <meta
-                name="description"
-                content="Unsere Services und Partner"
-            />
+            <title>Immobilien-Services & Partner Wien – SIRA Group</title>
+            <meta name="description" content="SIRA Services: Umfassende Immobilien-Dienstleistungen und starke Partnerschaften in Wien. Professionelle Betreuung Ihrer Immobilie durch erfahrene Experten." />
+            <link rel="canonical" href="https://sira-group.at/services" />
+            <meta property="og:title" content="Immobilien-Services & Partner Wien – SIRA Group" />
+            <meta property="og:description" content="Umfassende Immobilien-Dienstleistungen und starke Partnerschaften in Wien." />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://sira-group.at/services" />
+            <meta property="og:image" content="https://sira-group.at/assets/social-preview.jpg" />
+            <meta property="og:site_name" content="SIRA Group" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Immobilien-Services & Partner Wien – SIRA Group" />
+            <meta name="twitter:description" content="Umfassende Immobilien-Dienstleistungen und starke Partnerschaften in Wien." />
         </Helmet>
         <NavBar isLandingpage={false}></NavBar>
         <div className="services">
             <div className="bild-hinter-slogan">
-                <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} rel="preload"/>
+                <img src={vienna_breit} alt="Wien Panorama – SIRA Immobilien-Services" style={{ width: "100%", height: "25vh", objectFit: "cover" }} />
                 <h1 className="header"> {t("SERVICES")}
                 </h1>
             </div>
@@ -71,7 +78,7 @@ const Services: React.FC = () => {
             </h2>
             <div className="partners">
                 {partner.map((partner) => (
-                    <img src={partner} rel="preload"></img>
+                    <img src={partner} alt="SIRA Group Partner" />
                 ))}
             </div>
             <h2 className="kontaktheader">{t("kontakt")}</h2>

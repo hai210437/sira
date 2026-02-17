@@ -99,14 +99,14 @@ app.get("/justimmo", async (req, res) => {
 // ===== Microsoft Graph API - Contact Form Endpoint =====
 app.post("/api/contact", async (req, res) => {
   try {
-    const { vorname, nachname, email, telefonnr, nachricht, date, sourceUrl } = req.body;
+    const { vorname, nachname, email, telefonnr, nachricht, date, sourceUrl, immobilienTitel } = req.body;
 
     // Validierung
     if (!vorname || !nachname || !email || !nachricht) {
       return res.status(400).json({ error: "Pflichtfelder fehlen" });
     }
 
-    console.log("📧 Verarbeite Kontaktformular:", { vorname, nachname, email, sourceUrl });
+    console.log("📧 Verarbeite Kontaktformular:", { vorname, nachname, email, sourceUrl, immobilienTitel });
 
     // Microsoft Graph Client Setup mit Client Credentials Flow
     const tenantId = process.env.MICROSOFT_TENANT_ID;
@@ -179,6 +179,11 @@ app.post("/api/contact", async (req, res) => {
                             <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffffff; font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">
                                 Anfrage bezüglich Immobilie:
                             </p>
+                            ${immobilienTitel ? `
+                            <p style="margin: 0 0 12px 0; font-size: 16px; color: #ffffff; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">
+                                ${immobilienTitel}
+                            </p>
+                            ` : ''}
                             <a href="${sourceUrl}" style="display: inline-block; color: #ffffff; text-decoration: none; font-size: 14px; font-family: Arial, Helvetica, sans-serif; padding: 10px 18px; background-color: rgba(255, 255, 255, 0.2); border: 2px solid #ffffff;">
                                 ${sourceUrl}
                             </a>
@@ -288,7 +293,9 @@ app.post("/api/contact", async (req, res) => {
 
     const message = {
       message: {
-        subject: `Neue Kontaktanfrage von ${vorname} ${nachname}`,
+        subject: immobilienTitel
+          ? `Neue Anfrage: ${immobilienTitel} – von ${vorname} ${nachname}`
+          : `Neue Kontaktanfrage von ${vorname} ${nachname}`,
         body: {
           contentType: "HTML",
           content: emailBody,

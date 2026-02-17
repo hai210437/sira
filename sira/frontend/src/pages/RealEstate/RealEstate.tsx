@@ -81,16 +81,23 @@ const RealEstate: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>Real Estate | SIRA Group</title>
-                <meta
-                    name="description"
-                    content="Unsere Immobilienangebote und Referenzen"
-                />
+                <title>Immobilien kaufen & mieten in Wien – SIRA Real Estate</title>
+                <meta name="description" content="SIRA Real Estate: Immobilienverkauf, Vermietung und Bewertung in Wien. Entdecken Sie exklusive Objekte und profitieren Sie von professioneller Beratung." />
+                <link rel="canonical" href="https://sira-group.at/real-estate" />
+                <meta property="og:title" content="Immobilien kaufen & mieten in Wien – SIRA Real Estate" />
+                <meta property="og:description" content="Immobilienverkauf, Vermietung und Bewertung in Wien. Exklusive Objekte und professionelle Beratung." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://sira-group.at/real-estate" />
+                <meta property="og:image" content="https://sira-group.at/assets/social-preview.jpg" />
+                <meta property="og:site_name" content="SIRA Group" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Immobilien kaufen & mieten in Wien – SIRA Real Estate" />
+                <meta name="twitter:description" content="Immobilienverkauf, Vermietung und Bewertung in Wien. Exklusive Objekte und professionelle Beratung." />
             </Helmet>
             <NavBar isLandingpage={false}></NavBar>
             <div className="real-estate">
                 <div className="bild-hinter-slogan">
-                    <img src={vienna_breit} style={{ width: "100%", height: "25vh", objectFit: "cover" }} rel="preload" />
+                    <img src={vienna_breit} alt="Wien Panorama – SIRA Real Estate Immobilien" style={{ width: "100%", height: "25vh", objectFit: "cover" }} />
                     <h1 className="header"> {t("SIRA REAL ESTATE")}
                     </h1>
                 </div>

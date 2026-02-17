@@ -21,11 +21,19 @@ const LandingPage: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>Home | SIRA Group</title>
-                <meta
-                    name="description"
-                    content="SIRA, Ihr Partner für Immobilienlösungen."
-                />
+                <title>SIRA Group – Ihr Partner für Immobilienlösungen in Wien</title>
+                <meta name="description" content="SIRA Group ist Ihr verlässlicher Immobilienpartner in Wien. Verkauf, Vermietung, Finanzierung und Beratung – mit Qualität, Leidenschaft und Erfahrung." />
+                <link rel="canonical" href="https://sira-group.at/" />
+                <meta property="og:title" content="SIRA Group – Ihr Partner für Immobilienlösungen in Wien" />
+                <meta property="og:description" content="Ihr Immobilienpartner in Wien: Verkauf, Vermietung und Beratung mit Qualität und Erfahrung." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://sira-group.at/" />
+                <meta property="og:image" content="https://sira-group.at/assets/social-preview.jpg" />
+                <meta property="og:site_name" content="SIRA Group" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="SIRA Group – Ihr Partner für Immobilienlösungen in Wien" />
+                <meta name="twitter:description" content="Ihr Immobilienpartner in Wien: Verkauf, Vermietung und Beratung mit Qualität und Erfahrung." />
+                <meta name="twitter:image" content="https://sira-group.at/assets/social-preview.jpg" />
             </Helmet>
             <NavBar isLandingpage={true} ></NavBar>
             <div className="bild-hinter-slogan-landing">

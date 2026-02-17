@@ -29,18 +29,25 @@ const Team: React.FC = () => {
 
     return <>
         <Helmet>
-            <title>Team | SIRA Group</title>
-            <meta 
-                name="description"
-                content = "Erfahren Sie mehr über die SIRA Group"
-            />
+            <title>Unser Team – Immobilienexperten Wien | SIRA Group</title>
+            <meta name="description" content="Lernen Sie das SIRA Group Team kennen: Erfahrene Immobilienexperten in Wien. Geschäftsführer Simon Jaros, Silvio Widowitz und unser Beraterteam stehen Ihnen zur Seite." />
+            <link rel="canonical" href="https://sira-group.at/team" />
+            <meta property="og:title" content="Unser Team – Immobilienexperten Wien | SIRA Group" />
+            <meta property="og:description" content="Lernen Sie das SIRA Group Team kennen: Erfahrene Immobilienexperten in Wien." />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://sira-group.at/team" />
+            <meta property="og:image" content="https://sira-group.at/assets/social-preview.jpg" />
+            <meta property="og:site_name" content="SIRA Group" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Unser Team – Immobilienexperten Wien | SIRA Group" />
+            <meta name="twitter:description" content="Erfahrene Immobilienexperten in Wien stehen Ihnen zur Seite." />
         </Helmet>
         <NavBar isLandingpage={false}></NavBar>
         <div className="team">
             <div className="teamtext">
-                <h2>
+                <h1 style={{ fontSize: '1.8rem' }}>
                     {t("teamheader")}
-                </h2>
+                </h1>
                 <br />
                 <p>
                     {t("teamtext1")}
@@ -57,15 +64,13 @@ const Team: React.FC = () => {
                     <div className="member-image-wrapper">
                         <img
                             src={member.normal}
-                            alt={`Team member ${index + 1}`}
+                            alt={`${member.name} – ${member.position} bei SIRA Group`}
                             className="member-image normal"
-                            rel="preload"
                         />
                         <img
                             src={member.closeup}
-                            alt={`Team member ${index + 1} closeup`}
+                            alt={`${member.name} – Porträt`}
                             className="member-image closeup"
-                            rel="preload"
                         />
                         <div className="info-overlay">
                             <h3>{member.name}</h3>

@@ -108,14 +108,18 @@ const Immobilien: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>Immobilien kaufen und mieten in Wien | SIRA Group</title>
-                <meta name="description" content="Entdecken Sie aktuelle Wohnungen, Häuser und Gewerbeimmobilien zum Kauf oder zur Miete in Wien und Umgebung. ✓ Professionelle Beratung ✓ Exklusive Objekte ✓ SIRA Group" />
-
-                {/* Open Graph */}
-                <meta property="og:title" content="Immobilien kaufen und mieten in Wien | SIRA Group" />
-                <meta property="og:description" content="Entdecken Sie aktuelle Wohnungen, Häuser und Gewerbeimmobilien zum Kauf oder zur Miete in Wien." />
+                <title>Immobilien kaufen und mieten in Wien und Umgebung | SIRA Group</title>
+                <meta name="description" content="Entdecken Sie aktuelle Wohnungen, Häuser und Gewerbeimmobilien zum Kauf oder zur Miete in Wien und Umgebung. Professionelle Beratung und exklusive Objekte bei SIRA Group." />
+                <link rel="canonical" href="https://sira-group.at/immobilien" />
+                <meta property="og:title" content="Immobilien kaufen und mieten in Wien und Umgebung | SIRA Group" />
+                <meta property="og:description" content="Aktuelle Wohnungen, Häuser und Gewerbeimmobilien zum Kauf oder zur Miete in Wien und Umgebung." />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://sira-group.at/immobilien" />
+                <meta property="og:image" content="https://sira-group.at/assets/social-preview.jpg" />
+                <meta property="og:site_name" content="SIRA Group" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Immobilien kaufen und mieten in Wien und Umgebung | SIRA Group" />
+                <meta name="twitter:description" content="Aktuelle Wohnungen, Häuser und Gewerbeimmobilien zum Kauf oder zur Miete in Wien und Umgebung." />
             </Helmet>
 
             <NavBar isLandingpage={false} />
