@@ -8,10 +8,12 @@ import standfest_partner from "../../assets/standfest_partner.png";
 import er_partner from "../../assets/er_partner.png";
 import immogrand_partner from "../../assets/immogrand_partner.png";
 import Helmet from "react-helmet";
+import { useScrollAnimations } from "../../hooks/useScrollAnimations";
 
 
 const Services: React.FC = () => {
     const { t } = useTranslation();
+    useScrollAnimations();
     const services = [
         t("service1"),
         t("service2"),
@@ -42,7 +44,7 @@ const Services: React.FC = () => {
                 </h1>
             </div>
             <div className="text-plus-bild-services">
-                <div className="textlinksservice">
+                <div className="textlinksservice" data-animate="slide-left">
                     <div>
                         <h2>
                             {t("serviceheader1")}
@@ -57,7 +59,7 @@ const Services: React.FC = () => {
                         </p>
                     </div>
                 </div>
-                <div className="serviceblock">
+                <div className="serviceblock" data-animate="stagger">
                     {services.map((service) => (
                         <div className="service">
                             <h2>{service}</h2>
@@ -69,7 +71,7 @@ const Services: React.FC = () => {
             <h2 className="partnerheader">
                 {t("partnerheader")}
             </h2>
-            <div className="partners">
+            <div className="partners" data-animate="stagger">
                 {partner.map((partner) => (
                     <img src={partner} rel="preload"></img>
                 ))}

@@ -11,6 +11,7 @@ import Helmet from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 import { getImmobilien } from "../../services/api";
 import type { Immobilie } from "../../services/api";
+import { useScrollAnimations } from "../../hooks/useScrollAnimations";
 
 type Bewertung = {
     text: string,
@@ -28,6 +29,8 @@ const RealEstate: React.FC = () => {
     const [index, setIndex] = useState(0);
     const blockRef = useRef<HTMLDivElement | null>(null);
     //const [paused, setPaused] = useState(false);
+
+    useScrollAnimations();
 
     const estateleistungen = [
         t("verkauf"),
@@ -95,7 +98,7 @@ const RealEstate: React.FC = () => {
                     </h1>
                 </div>
                 <div className="text-plus-bild-estate">
-                    <div className="textlinks">
+                    <div className="textlinks" data-animate="slide-left">
                         <div>
                             <h2>
                                 {t("estateheader1")}
@@ -110,7 +113,7 @@ const RealEstate: React.FC = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="estateleistungen">
+                    <div className="estateleistungen" data-animate="stagger">
                         {estateleistungen.map((leistung, idx) => (
                             <div className="estateleistung" key={idx}>
                                 <h2>

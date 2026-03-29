@@ -173,7 +173,75 @@
         align-items: center;
         margin-bottom: 1vh;
     }
+}
 
+@media (max-width: 768px) {
+    .header {
+        font-size: clamp(18px, 6vw, 36px);
+    }
+
+    .text-plus-bild-estate {
+        padding: 3vh 5vw;
+        gap: 3vh;
+        font-size: clamp(13px, 3.5vw, 18px);
+    }
+
+    .textlinks {
+        min-width: unset;
+        margin-bottom: 2vh;
+    }
+
+    .estateleistungen {
+        min-width: unset;
+        width: 100%;
+        height: auto;
+    }
+
+    .estateleistung {
+        width: 90vw;
+        height: 8vh;
+    }
+
+    .bewertungen-ue {
+        margin-left: 5vw;
+        font-size: clamp(18px, 5vw, 30px);
+    }
+
+    .bewertung-block {
+        width: 90%;
+        height: auto;
+        padding: 2vh 3vw;
+    }
+
+    .bewertungstext {
+        font-size: clamp(11px, 3vw, 16px);
+        padding-top: 2vh;
+    }
+
+    .bewertungsname {
+        font-size: clamp(10px, 2.5vw, 14px);
+        margin-top: 1vh;
+        padding-bottom: 2vh;
+    }
+
+    .immobilien-list {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .immobilienblock {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .immo-bild-links {
+        width: 100%;
+    }
+
+    .more-immo-button {
+        font-size: clamp(12px, 3.5vw, 18px);
+        padding: 1.5vh 6vw;
+    }
 }
 
 .more-immo-button {

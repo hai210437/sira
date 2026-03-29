@@ -9,7 +9,7 @@ import real_estate_logo from "../../assets/sira_real_estate_logo.jpg";
 import finance_logo from "../../assets/sira_finance_logo.jpg";
 import services_logo from "../../assets/services_logo.png";
 import { Helmet } from "react-helmet";
-
+import { useScrollAnimations } from "../../hooks/useScrollAnimations";
 
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -18,6 +18,8 @@ import StandortKarte from "../../components/map/Map";
 const LandingPage: React.FC = () => {
 
     const { t } = useTranslation();
+    useScrollAnimations();
+
     return (
         <>
             <Helmet>
@@ -34,7 +36,7 @@ const LandingPage: React.FC = () => {
                 </h1>
             </div>
             <div className="text-plus-bild-landing">
-                <div>
+                <div data-animate="slide-left">
                     <h2>{t("sira")}<br />
                         {t("landingheader1")}
                     </h2>
@@ -47,12 +49,12 @@ const LandingPage: React.FC = () => {
                         {t("landingtext1.1")}
                     </p>
                 </div>
-                <img src={landing_2} alt="SIRA Group Team - Professionelle Immobilienberatung" rel="preload"/>
+                <img src={landing_2} alt="SIRA Group Team - Professionelle Immobilienberatung" data-animate="slide-right" rel="preload"/>
             </div>
 
-            <div className="text-plus-bild-landing">
-                <img src={landing_3} alt="Moderne Immobilienprojekte Wien" style={{ width: "60vw", height: "45vh", objectFit: "cover" }} rel="preload"/>
-                <div>
+            <div className="text-plus-bild-landing reverse-on-mobile">
+                <img src={landing_3} alt="Moderne Immobilienprojekte Wien" className="landing-img-second" data-animate="slide-left" rel="preload"/>
+                <div data-animate="slide-right">
                     <h2>
                         {t("landingheader2")}
                     </h2>
@@ -62,23 +64,21 @@ const LandingPage: React.FC = () => {
                     </p>
                 </div>
             </div>
-            <div className="text-plus-blue-bg">
+            <div className="text-plus-blue-bg" data-animate="fade-in">
                 <p>
                     {t("zitat1")}<br /> {t("zitat2")}<br /> {t("unterschrift")}
                 </p>
             </div>
-            <h2 className="leistungen-ue">{t("leistungen")}</h2>
-            <div className="leistungen-landing">
+            <h2 className="leistungen-ue" data-animate="fade-up">{t("leistungen")}</h2>
+            <div className="leistungen-landing" data-animate="stagger">
                 <Link to="/real-estate" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <div className="bild-hinter-leistung-landing">
                         <img src={real_estate_logo} alt="Real Estate - Immobilienverkauf und Vermietung" rel="preload"/>
-
                     </div>
                 </Link>
                 <Link to="/finance" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <div className="bild-hinter-leistung-landing">
                         <img src={finance_logo} alt="Finance - Immobilienfinanzierung und Beratung" rel="preload"/>
-
                     </div>
                 </Link>
                 <Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
@@ -88,7 +88,7 @@ const LandingPage: React.FC = () => {
                 </Link>
             </div>
             <div className="text-plus-map-landing">
-                <div>
+                <div data-animate="slide-left">
                     <h2>
                         {t("standortheader")}
                     </h2>
@@ -97,11 +97,11 @@ const LandingPage: React.FC = () => {
                         {t("standorttext")}
                     </p>
                     <p id="adresse">
-                        Kärntnerstraße 21-23/2/10 <br />
+                        Kärntnerstraße 21-23/3/10 <br />
                         1010 Wien
                     </p>
                 </div>
-                <div className="landing-map">
+                <div className="landing-map" data-animate="slide-right">
                     <StandortKarte></StandortKarte>
                 </div>
             </div>

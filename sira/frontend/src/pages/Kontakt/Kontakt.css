@@ -37,3 +37,25 @@
     margin-bottom: 2vh;
     margin-top: 1vh;
 }
+
+@media (max-width: 768px) {
+    .kontakttext {
+        padding: 2vh 5vw;
+        font-size: clamp(13px, 3.5vw, 18px);
+    }
+
+    .mapmittext {
+        padding: 1vh 5vw;
+        font-size: clamp(13px, 3.5vw, 18px);
+        flex-direction: column;
+    }
+
+    .mapmittext > div:first-child {
+        width: 100%;
+        height: 35vh;
+    }
+
+    .textnebenkarte {
+        width: 100%;
+    }
+}

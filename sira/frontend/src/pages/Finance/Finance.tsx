@@ -6,11 +6,13 @@ import { useTranslation } from "react-i18next";
 import finance_1 from "../../assets/finance_1.jpg";
 import Kontaktformular from "../../components/Kontaktformular/Kontaktformular";
 import Helmet from "react-helmet";
+import { useScrollAnimations } from "../../hooks/useScrollAnimations";
 
 const Finance: React.FC = () => {
 
 
     const { t } = useTranslation();
+    useScrollAnimations();
 
     const finanzleistungen = [
         t("finanzleistung1"),
@@ -34,7 +36,7 @@ const Finance: React.FC = () => {
                 </h1>
             </div>
             <div className="text-plus-bild-finance">
-                <div>
+                <div data-animate="slide-left">
                     <h2>
                         {t("financeheader")}
                     </h2>
@@ -45,7 +47,7 @@ const Finance: React.FC = () => {
                 </div>
                 <img src={finance_1} style={{ width: "50vw", height: "46vh", objectFit: "cover" }} rel="preload"/>
             </div>
-            <div className="finanzleistungen">
+            <div className="finanzleistungen" data-animate="stagger">
                 {finanzleistungen.map((leistung) => (
                     <div className="finanzleistung">
                         <h2 style={{ width: "50vw" }}>{leistung}</h2>

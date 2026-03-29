@@ -6,7 +6,7 @@ import i18n from "../../i18n";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import logoanimation from "../../assets/logo_rechteckig-removebg-preview.png";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 
 interface NavBarProps {
     isLandingpage: boolean;
@@ -15,23 +15,43 @@ interface NavBarProps {
 const NavBar: React.FC<NavBarProps> = ({ isLandingpage }) => {
 
     const [opacity, setOpacity] = useState(1);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const burgerRef = useRef<HTMLButtonElement>(null);
 
+    // Throttled scroll handler for navbar opacity
     useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const maxScroll = 400;
-            const newOpacity = 1 - Math.min(scrollY / maxScroll, 1) * 0.2; // max. 0.9 Deckkraft
-            setOpacity(newOpacity);
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                const newOpacity = 1 - Math.min(scrollY / 400, 1) * 0.2;
+                setOpacity(newOpacity);
+                ticking = false;
+            });
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Close menu on overlay background click (not on menu items or burger)
+    const handleOverlayClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+        if (e.target === e.currentTarget) {
+            setMenuOpen(false);
+        }
+    }, []);
+
+    // Prevent body scroll when menu is open
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? "hidden" : "";
+        return () => { document.body.style.overflow = ""; };
+    }, [menuOpen]);
 
 
     const navigate = useNavigate();
     const { t } = useTranslation();
-    //const t = (key: string) => key;
     const navbaritems = [
         { name: "REAL ESTATE", path: "/real-estate" },
         { name: "FINANCE", path: "/finance" },
@@ -49,7 +69,6 @@ const NavBar: React.FC<NavBarProps> = ({ isLandingpage }) => {
                 opacity: 0,
                 duration: 1.5,
                 delay: 0.5
-                //ease: 'elastic'
             })
 
             gsap.fromTo('.logoanimation', {
@@ -72,19 +91,25 @@ const NavBar: React.FC<NavBarProps> = ({ isLandingpage }) => {
         i18n.changeLanguage(newLang);
     };
 
+    const handleNavClick = (path: string) => {
+        setMenuOpen(false);
+        navigate(path);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     return (
         <>
-            <div className="navbar" style={{
+            <div className={`navbar ${menuOpen ? "menu-is-open" : ""}`} style={{
                 backgroundColor: `rgba(0, 3, 36, ${opacity})`,
-                backdropFilter: `blur(${opacity * 10}px)`, // optional: weicher Übergang
+                backdropFilter: `blur(${opacity * 10}px)`,
                 transition: "background-color 0.3s ease-out",
             }}>
-                <img src={logo} alt="SIRA Group Logo" className="logo-links-oben" onClick={() => navigate("/")}>
-                </img>
-                <div className="menu-items">
+                <img src={logo} alt="SIRA Group Logo" className="logo-links-oben" onClick={() => navigate("/")} />
+
+                {/* Desktop menu */}
+                <div className="menu-items desktop-menu">
                     {navbaritems.map((item, index) => {
-                        const isActive = location.pathname === item.path; // prüfen, ob aktiv
+                        const isActive = location.pathname === item.path;
                         return (
                             <Link
                                 key={item.name}
@@ -103,7 +128,44 @@ const NavBar: React.FC<NavBarProps> = ({ isLandingpage }) => {
                     })}
                     <span id="de-en" onClick={switchLanguage}>DE/EN</span>
                 </div>
+
+                {/* Mobile: Language + Burger */}
+                <div className="mobile-controls">
+                    <span className="mobile-lang" onClick={switchLanguage}>DE/EN</span>
+                    <button
+                        ref={burgerRef}
+                        className={`burger-button ${menuOpen ? "open" : ""}`}
+                        onClick={() => setMenuOpen(prev => !prev)}
+                        aria-label="Menu"
+                    >
+                        <span className="burger-line"></span>
+                        <span className="burger-line"></span>
+                        <span className="burger-line"></span>
+                    </button>
+                </div>
             </div>
+
+            {/* Mobile overlay menu */}
+            <div
+                className={`mobile-menu-overlay ${menuOpen ? "open" : ""}`}
+                onClick={handleOverlayClick}
+            >
+                <div className="mobile-menu-content">
+                    {navbaritems.map((item) => {
+                        const isActive = location.pathname === item.path;
+                        return (
+                            <button
+                                key={item.name}
+                                className={`mobile-menu-item ${isActive ? "active" : ""}`}
+                                onClick={() => handleNavClick(item.path)}
+                            >
+                                {item.name}
+                            </button>
+                        );
+                    })}
+                </div>
+            </div>
+
             <div className="overlay-rectangle">
                 <img src={logoanimation} alt="SIRA Group Logo Animation" className="logoanimation"></img>
             </div>

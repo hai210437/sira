@@ -10,21 +10,28 @@ import thomas_normal from "../../assets/thomas_normal.jpg";
 import thomas_closeup from "../../assets/thomas_closeup.jpg";
 import david_normal from "../../assets/david_normal.jpeg";
 import david_closeup from "../../assets/david_closeup.jpeg";
-import julian_normal from "../../assets/julian_normal.jpeg";
-import julian_closeup from "../../assets/julian_closeup.jpeg";
+import julian_normal from "../../assets/julian_normal.png";
+import julian_closeup from "../../assets/julian_closeup.png";
+import elena_normal from "../../assets/elena_normal.png";
+import elena_closeup from "../../assets/elena_closeup.png";
+import ruben_normal from "../../assets/ruben_normal.png";
+import ruben_closeup from "../../assets/ruben_closeup.png";
 import Kontaktformular from "../../components/Kontaktformular/Kontaktformular";
 import Helmet from "react-helmet";
+import { useScrollAnimations } from "../../hooks/useScrollAnimations";
 
 const Team: React.FC = () => {
     const { t } = useTranslation();
+    useScrollAnimations();
 
     const teamPictures = [
-        { normal: simon_normal, closeup: simon_closeup, name: "Simon Jaros", position: "Geschäftsführer | CEO", email: "jaros.s@sira-group.at", tel: "+43 660 2332003" },
+        { normal: simon_normal, closeup: simon_closeup, name: "Simon Jaros", position: "Geschäftsführer | CEO", email: "jaros.s@sira-group.at", tel: "+43 660 23 32 003" },
         { normal: silvio_normal, closeup: silvio_closeup, name: "Silvio Widowitz", position: "Geschäftsführung | COO", email: "widowitz@sira-group.at", tel: "+43 660 4479989" },
         { normal: thomas_normal, closeup: thomas_closeup, name:"Thomas Lechner", position:"Immobilienberater", email:"lechner@sira-group.at", tel:"+43 664 88736321"},
         { normal: david_normal, closeup: david_closeup, name:"David Jaros", position:"Immobilienberater", email:"jaros.d@sira-group.at", tel:"+43 660 2332001"},
-        { normal: julian_normal, closeup: julian_closeup, name:"Julian Glas", position:"Immobilienberater", email:"glas@sira-group.at", tel:"+43 699 13559820"},
-
+        { normal: julian_normal, closeup: julian_closeup, name:"Julian Glas", position:"Immobilienberater", email:"glas@sira-group.at", tel:"+43 699 13559820", facePos: "center 20%"},
+        { normal: elena_normal, closeup: elena_closeup, name:"Elena Winkler", position:"Assistenz der Geschäftsführung", email:"winkler@sira-group.at", tel:"+43 664 3490339", facePos: "center 20%"},
+        { normal: ruben_normal, closeup: ruben_closeup, name:"Ruben Egerer", position:"Immobilienberater", email:"egerer@sira-group.at", tel:"+43 670 6089946", facePos: "center 20%"},
     ];
 
     return <>
@@ -37,7 +44,7 @@ const Team: React.FC = () => {
         </Helmet>
         <NavBar isLandingpage={false}></NavBar>
         <div className="team">
-            <div className="teamtext">
+            <div className="teamtext" data-animate="fade-up">
                 <h2>
                     {t("teamheader")}
                 </h2>
@@ -51,7 +58,7 @@ const Team: React.FC = () => {
                 </p>
             </div>
         </div>
-        <div className="team-headshots">
+        <div className="team-headshots" data-animate="stagger">
             {teamPictures.map((member, index) => (
                 <div className="memberblock" key={index}>
                     <div className="member-image-wrapper">
@@ -60,13 +67,16 @@ const Team: React.FC = () => {
                             alt={`Team member ${index + 1}`}
                             className="member-image normal"
                             rel="preload"
+                            style={member.facePos ? { objectPosition: member.facePos } : undefined}
                         />
                         <img
                             src={member.closeup}
                             alt={`Team member ${index + 1} closeup`}
                             className="member-image closeup"
                             rel="preload"
+                            style={member.facePos ? { objectPosition: member.facePos } : undefined}
                         />
+                        <span className="hover-hint">+</span>
                         <div className="info-overlay">
                             <h3>{member.name}</h3>
                             <h4>{member.position}</h4>

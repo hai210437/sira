@@ -143,5 +143,47 @@
         align-items: center;
         justify-content: center;
     }
+}
 
+@media (max-width: 768px) {
+    .text-plus-bild-services {
+        padding: 3vh 5vw;
+        gap: 3vh;
+        font-size: clamp(13px, 3.5vw, 18px);
+    }
+
+    .textlinksservice {
+        min-width: unset;
+        margin-bottom: 2vh;
+    }
+
+    .serviceblock {
+        min-width: unset;
+        width: 100%;
+        height: auto;
+    }
+
+    .service {
+        width: 90vw;
+        height: 8vh;
+    }
+
+    .service h2 {
+        font-size: clamp(11px, 3.5vw, 18px);
+    }
+
+    .partners {
+        padding: 0 5vw;
+        gap: 3vw;
+        justify-content: center;
+    }
+
+    .partners img {
+        height: 12vh;
+    }
+
+    .partnerheader {
+        margin-left: 5vw;
+        font-size: clamp(18px, 5vw, 30px);
+    }
 }

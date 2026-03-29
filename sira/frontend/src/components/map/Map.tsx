@@ -92,7 +92,7 @@ const StandortKarte: React.FC = () => {
           new (window as any).google.maps.marker.AdvancedMarkerElement({
             position: { lat: 48.206211, lng: 16.371459 },
             map,
-            title: "SIRA Group - Kärntnerstraße 21-23/2/10, 1010 Wien",
+            title: "SIRA Group - Kärntnerstraße 21-23/3/10, 1010 Wien",
             content: markerContent
           });
 

@@ -6,10 +6,34 @@ import { Client } from "@microsoft/microsoft-graph-client";
 import "isomorphic-fetch";
 
 const app = express();
-app.use(cors());
-app.use(express.json()); // Body parser für POST requests
+app.use(cors({
+  origin: ["https://sira-group.at", "https://www.sira-group.at", "http://localhost:5173"],
+  methods: ["GET", "POST"],
+}));
+app.use(express.json({ limit: "100kb" }));
 dotenv.config();
 const PORT = process.env.PORT || 67;
+
+// HTML-Escaping gegen XSS in E-Mail-Templates
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// URL-Validierung
+function isValidUrl(str) {
+  try {
+    const url = new URL(str);
+    return url.protocol === "https:" || url.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
 
 app.get("/justimmo", async (req, res) => {
   const baseUrl = "https://api.justimmo.at/rest/v1/objekt/list";
@@ -106,7 +130,25 @@ app.post("/api/contact", async (req, res) => {
       return res.status(400).json({ error: "Pflichtfelder fehlen" });
     }
 
-    console.log("📧 Verarbeite Kontaktformular:", { vorname, nachname, email, sourceUrl });
+    // E-Mail Format prüfen
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: "Ungültige E-Mail-Adresse" });
+    }
+
+    // Input-Längen begrenzen
+    if (vorname.length > 100 || nachname.length > 100 || nachricht.length > 5000) {
+      return res.status(400).json({ error: "Eingabe zu lang" });
+    }
+
+    // Alle User-Inputs escapen für HTML-Email
+    const safeVorname = escapeHtml(vorname);
+    const safeNachname = escapeHtml(nachname);
+    const safeEmail = escapeHtml(email);
+    const safeTelefonnr = escapeHtml(telefonnr);
+    const safeNachricht = escapeHtml(nachricht);
+    const safeDate = escapeHtml(date);
+    const safeSourceUrl = sourceUrl && isValidUrl(sourceUrl) ? escapeHtml(sourceUrl) : null;
 
     // Microsoft Graph Client Setup mit Client Credentials Flow
     const tenantId = process.env.MICROSOFT_TENANT_ID;
@@ -173,14 +215,14 @@ app.post("/api/contact", async (req, res) => {
                         </td>
                     </tr>
 
-                    ${sourceUrl ? `
+                    ${safeSourceUrl ? `
                     <tr>
                         <td style="background-color: #000324; padding: 25px 30px; border-bottom: 4px solid #000324;">
                             <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffffff; font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">
                                 Anfrage bezüglich Immobilie:
                             </p>
-                            <a href="${sourceUrl}" style="display: inline-block; color: #ffffff; text-decoration: none; font-size: 14px; font-family: Arial, Helvetica, sans-serif; padding: 10px 18px; background-color: rgba(255, 255, 255, 0.2); border: 2px solid #ffffff;">
-                                ${sourceUrl}
+                            <a href="${safeSourceUrl}" style="display: inline-block; color: #ffffff; text-decoration: none; font-size: 14px; font-family: Arial, Helvetica, sans-serif; padding: 10px 18px; background-color: rgba(255, 255, 255, 0.2); border: 2px solid #ffffff;">
+                                ${safeSourceUrl}
                             </a>
                         </td>
                     </tr>
@@ -202,7 +244,7 @@ app.post("/api/contact", async (req, res) => {
                                                     Name:
                                                 </td>
                                                 <td style="padding: 8px 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif;">
-                                                    <strong>${vorname} ${nachname}</strong>
+                                                    <strong>${safeVorname} ${safeNachname}</strong>
                                                 </td>
                                             </tr>
                                         </table>
@@ -212,7 +254,7 @@ app.post("/api/contact", async (req, res) => {
                                                     E-Mail:
                                                 </td>
                                                 <td style="padding: 8px 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif;">
-                                                    <a href="mailto:${email}" style="color: #000324; text-decoration: none; font-weight: bold;">${email}</a>
+                                                    <a href="mailto:${safeEmail}" style="color: #000324; text-decoration: none; font-weight: bold;">${safeEmail}</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -222,7 +264,7 @@ app.post("/api/contact", async (req, res) => {
                                                     Telefon:
                                                 </td>
                                                 <td style="padding: 8px 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif;">
-                                                    ${telefonnr || "Nicht angegeben"}
+                                                    ${safeTelefonnr || "Nicht angegeben"}
                                                 </td>
                                             </tr>
                                         </table>
@@ -232,7 +274,7 @@ app.post("/api/contact", async (req, res) => {
                                                     Datum:
                                                 </td>
                                                 <td style="padding: 8px 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif;">
-                                                    ${date || new Date().toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                                                    ${safeDate || new Date().toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                                                 </td>
                                             </tr>
                                         </table>
@@ -246,7 +288,7 @@ app.post("/api/contact", async (req, res) => {
                                         <p style="margin: 0 0 15px 0; font-size: 14px; font-weight: bold; color: #000324; font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: 1px; padding-bottom: 10px; border-bottom: 3px solid #000324;">
                                             NACHRICHT
                                         </p>
-                                        <p style="margin: 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif; line-height: 1.8; white-space: pre-wrap;">${nachricht}</p>
+                                        <p style="margin: 0; font-size: 15px; color: #333333; font-family: Arial, Helvetica, sans-serif; line-height: 1.8; white-space: pre-wrap;">${safeNachricht}</p>
                                     </td>
                                 </tr>
                             </table>
@@ -255,7 +297,7 @@ app.post("/api/contact", async (req, res) => {
                                 <tr>
                                     <td style="padding: 20px; text-align: center;">
                                         <p style="margin: 0; font-size: 14px; color: #ffffff; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
-                                            <strong>💬 Schnell antworten:</strong> Einfach direkt auf diese E-Mail antworten, um ${vorname} zu kontaktieren.
+                                            <strong>💬 Schnell antworten:</strong> Einfach direkt auf diese E-Mail antworten, um ${safeVorname} zu kontaktieren.
                                         </p>
                                     </td>
                                 </tr>
@@ -319,8 +361,7 @@ app.post("/api/contact", async (req, res) => {
   } catch (err) {
     console.error("❌ Fehler beim Senden:", err);
     res.status(500).json({
-      error: "Fehler beim Senden der Nachricht",
-      details: err.message
+      error: "Fehler beim Senden der Nachricht"
     });
   }
 });

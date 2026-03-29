@@ -13,3 +13,19 @@
     text-align: left;
     line-height: 1.2;
 }
+
+@media (max-width: 768px) {
+    .datenschutz-container {
+        max-width: 100%;
+        padding: 3vh 5vw;
+    }
+
+    .datenschutz-container h2 {
+        font-size: clamp(16px, 4.5vw, 24px);
+    }
+
+    .datenschutz-container p {
+        font-size: clamp(13px, 3.5vw, 16px);
+        line-height: 1.5;
+    }
+}

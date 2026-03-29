@@ -27,14 +27,16 @@
   position: relative;
   width: 80%;
   height: 48vh;
-  overflow:hidden;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .member-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease, opacity 1s ease;
+  object-position: center 15%;
+  transition: transform 0.5s ease, opacity 0.45s ease;
   position: absolute;
   top: 0;
   left: 0;
@@ -50,6 +52,40 @@
   opacity: 0;
   z-index: 2;
   filter: brightness(50%);
+}
+
+/* Hover hint - subtle "+" in bottom right */
+.hover-hint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: hint-pulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hint-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Hide hint on hover */
+.member-image-wrapper:hover .hover-hint {
+  opacity: 0;
+  transform: scale(0.5);
 }
 
 .info-overlay {
@@ -75,17 +111,17 @@
 
 .member-image-wrapper:hover .info-overlay {
   opacity: 1;
-  z-index: 3000;
+  z-index: 5;
 }
 
 /* Hover-Effekt: Zoom + Bildwechsel */
 .member-image-wrapper:hover .member-image.normal {
-  transform: scale(1.08);
+  transform: scale(1.15);
   opacity: 0;
 }
 
 .member-image-wrapper:hover .member-image.closeup {
-  transform: scale(1.08);
+  transform: scale(1.15);
   opacity: 1;
 }
 
@@ -102,4 +138,43 @@
     flex: 1 1 90%;
     max-width: 90%;
   }
+}
+
+@media (max-width: 768px) {
+    .teamtext {
+        padding: 3vh 5vw;
+        font-size: clamp(13px, 3.5vw, 18px);
+    }
+
+    .team-headshots {
+        gap: 4vw;
+        margin: 3vw 5vw;
+    }
+
+    .member-image-wrapper {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .hover-hint {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+        bottom: 14px;
+        right: 14px;
+    }
+
+    .info-overlay h3 {
+        font-size: clamp(16px, 4.5vw, 24px);
+    }
+
+    .info-overlay h4 {
+        font-size: clamp(12px, 3.5vw, 18px);
+        margin-bottom: 1.5vh;
+    }
+
+    .info-overlay a,
+    .info-overlay p {
+        font-size: clamp(11px, 3vw, 16px);
+    }
 }

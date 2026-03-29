@@ -1,0 +1,47 @@
+stages:
+  - build
+
+variables:
+  FRONTEND_IMAGE: $CI_REGISTRY_IMAGE/frontend
+  BACKEND_IMAGE: $CI_REGISTRY_IMAGE/backend
+  DOCKER_BUILDKIT: "1"
+
+# Build & Push nur bei Push auf main
+.docker-build:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+  only:
+    - main
+
+build-frontend:
+  extends: .docker-build
+  script:
+    - docker pull $FRONTEND_IMAGE:latest || true
+    - >
+      docker build
+      --cache-from $FRONTEND_IMAGE:latest
+      --build-arg VITE_MAP_KEY="$MAP_KEY"
+      -t $FRONTEND_IMAGE:latest
+      -t $FRONTEND_IMAGE:$CI_COMMIT_SHORT_SHA
+      -f sira/frontend/Dockerfile
+      sira/frontend
+    - docker push $FRONTEND_IMAGE:latest
+    - docker push $FRONTEND_IMAGE:$CI_COMMIT_SHORT_SHA
+
+build-backend:
+  extends: .docker-build
+  script:
+    - docker pull $BACKEND_IMAGE:latest || true
+    - >
+      docker build
+      --cache-from $BACKEND_IMAGE:latest
+      -t $BACKEND_IMAGE:latest
+      -t $BACKEND_IMAGE:$CI_COMMIT_SHORT_SHA
+      -f sira/backend/Dockerfile
+      sira/backend
+    - docker push $BACKEND_IMAGE:latest
+    - docker push $BACKEND_IMAGE:$CI_COMMIT_SHORT_SHA

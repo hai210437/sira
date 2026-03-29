@@ -5,9 +5,11 @@ import "./Kontakt.css";
 import Kontaktformular from "../../components/Kontaktformular/Kontaktformular";
 import StandortKarte from "../../components/map/Map";
 import Helmet from "react-helmet";
+import { useScrollAnimations } from "../../hooks/useScrollAnimations";
 
 const Kontakt: React.FC = () => {
     const { t } = useTranslation();
+    useScrollAnimations();
     return <>
         <Helmet>
             <title>Kontakt | SIRA Group</title>
@@ -23,22 +25,22 @@ const Kontakt: React.FC = () => {
                 {t("kontakttext")}
             </p>
             <h2 className="kontaktheader">{t("kontaktformular")}</h2>
-            <div className="kontaktform">
+            <div className="kontaktform" data-animate="fade-up">
                 <Kontaktformular isKontaktSeite={true}></Kontaktformular>
             </div>
-            <div className="mapmittext">
+            <div className="mapmittext" data-animate="fade-up">
                 <div>
                     <StandortKarte></StandortKarte>
                 </div>
                 <div className="textnebenkarte">
                     <h2>{t("unserstandort")}</h2>
                     <p>
-                        Kärntnerstraße 21-23/2/10<br />
+                        Kärntnerstraße 21-23/3/10<br />
                         1010 Wien
                     </p>
                     <h2>{t("erreichbar")}</h2>
                     <p>
-                        +43 660 2332 003 <br />
+                        +43 660 23 32 003 <br />
                         office@sira-group.at
                     </p>
                 </div>

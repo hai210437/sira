@@ -244,13 +244,14 @@
     left: 0;
 }
 
-.immo-bild-links.one:hover .erstes-bild {
+/*.immo-bild-links.one:hover .erstes-bild {
     opacity: 0;
 }
 
 .immo-bild-links:hover .zweites-bild {
     opacity: 1;
 }
+    */
 
 .immo-titel {
     color: var(--basic-blue);
@@ -348,4 +349,30 @@
 .pagination button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .immobilien-list {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .immobilienblock {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5vh;
+    }
+
+    .immo-bild-links {
+        width: 100%;
+        height: auto;
+    }
+
+    .immo-titel {
+        font-size: clamp(16px, 4vw, 24px);
+    }
+
+    .beschreibung.rechts {
+        width: 100%;
+    }
 }

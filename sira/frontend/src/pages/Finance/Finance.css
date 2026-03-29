@@ -83,28 +83,52 @@
 @media (max-width: 700px) {
     .text-plus-bild-finance {
         flex-direction: column;
-        /* Bilder und Text untereinander auf kleineren Geräten */
         align-items: center;
     }
 
     .text-plus-bild-finance img {
         width: 90vw;
-        /* Das Bild nimmt mehr Platz auf kleineren Geräten ein */
         height: auto;
-        /* Höhe anpassen, um das Seitenverhältnis zu erhalten */
     }
 
     .text-plus-map-landing {
         flex-direction: column;
-        /* Bilder und Text untereinander auf kleineren Geräten */
         align-items: center;
     }
     .landing-map {
         width: 80vw;
         flex-direction: column;
-        /* Bilder und Text untereinander auf kleineren Geräten */
         align-items: center;
     }
+}
 
+@media (max-width: 768px) {
+    .text-plus-bild-finance {
+        padding: 3vh 5vw;
+        gap: 3vh;
+        font-size: clamp(13px, 3.5vw, 18px);
+    }
 
+    .text-plus-bild-finance > div {
+        min-width: unset;
+    }
+
+    .text-plus-bild-finance img {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .finanzleistung {
+        width: 90%;
+        height: 8vh;
+    }
+
+    .finanzleistung h2 {
+        font-size: clamp(14px, 4vw, 24px);
+    }
+
+    .kontaktheader {
+        margin-left: 5vw;
+        font-size: clamp(18px, 5vw, 30px);
+    }
 }

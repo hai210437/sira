@@ -40,10 +40,10 @@ const Footer: React.FC = () => {
             </div>
             <p className="footer-information">
                 SIRA Holding GmbH <br />
-                Kärntnerstraße 21-23/2/10<br />
+                Kärntnerstraße 21-23/3/10<br />
                 1010 Wien<br />
                 <br />
-                +43660 2332003<br />
+                +43 660 23 32 003<br />
                 office@sira-group.at<br />
             </p>
         </div>
